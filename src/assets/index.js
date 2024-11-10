@@ -1,7 +1,4 @@
-import guitarStock from './GuitarStock.jpg';
-import { pricingPlans } from './pricingPlans';  
+import guitarStock from "./GuitarStock.jpg";
+import { pricingPlans } from "./pricingPlans";
 
-export {
-  guitarStock,
-  pricingPlans,
-};
+export { guitarStock, pricingPlans };

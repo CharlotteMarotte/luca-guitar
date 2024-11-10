@@ -1,9 +1,16 @@
-import {PricingCard} from "@components";
+import { useState } from "react";
+import { PricingCard, ToggleButton } from "@components";
 import { pricingPlans } from "@assets";
 
 const Pricing = () => {
+  const [isWithContract, setIsWithContract] = useState(true);
+
+  const handleToggleChange = (newState) => {
+    setIsWithContract(newState);
+  };
+
   const renderPricingCard = (pricingPlan) => {
-    return <PricingCard key={pricingPlan.heading} pricingPlan={pricingPlan} />;
+    return <PricingCard pricingPlan={pricingPlan} />;
   };
 
   return (
@@ -12,13 +19,22 @@ const Pricing = () => {
         <h2 className="mb-4 text-4xl tracking-tight font-heading text-white">
           Für jeden das richtige Programm
         </h2>
-        <p className="mb-5 font-body text-white sm:text-xl ">
+        <p className="mb-5 font-body text-white sm:text-xl">
           Mein Fokus liegt darauf für jede*n Schüler*in das richtige zu finden.
         </p>
+
+        <ToggleButton
+          isChecked={isWithContract}
+          onToggle={handleToggleChange}
+          activeLabel="mit Vertrag"
+          inactiveLabel="ohne Vertrag"
+        />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12 mb-8">
-        {pricingPlans.map(renderPricingCard)}
+      <div className="flex flex-wrap justify-center mt-10 gap-4 sm:gap-6">
+        {isWithContract
+          ? pricingPlans.withContract.map(renderPricingCard)
+          : pricingPlans.withoutContract.map(renderPricingCard)}
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
-import {About, Contact, Pricing, Teaching} from "@pages"
+import { About, Contact, Pricing, Teaching } from "@pages";
 
 import { Layout, PrimaryButton, ParallaxScroll } from "@components";
-import {guitarStock} from "@assets";
+import { guitarStock } from "@assets";
 
 const App = () => {
   return (
