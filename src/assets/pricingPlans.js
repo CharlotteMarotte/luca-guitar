@@ -1,9 +1,9 @@
 export const pricingPlans = {
   withContract: [
     {
-      heading: "Einsteiger Plan",
+      heading: "Anfänger",
       description:
-        "Der perfekte Plan für Anfänger, die langfristig lernen wollen.",
+        "Der ideale Plan für Anfänger, die langfristig das Gitarrenspiel erlernen möchten.",
       price: "39.99€",
       priceUnit: "Monat",
       benefits: [
@@ -15,33 +15,32 @@ export const pricingPlans = {
       ],
     },
     {
-      heading: "Fortgeschrittenen Plan",
+      heading: "Mittelstufe",
       description:
-        "Für diejenigen, die bereits Erfahrungen haben und ihre Fähigkeiten verbessern möchten.",
+        "Für Gitarristen, die ihre Fähigkeiten erweitern und vertiefen möchten.",
       price: "69.99€",
       priceUnit: "Monat",
       benefits: [
         "Wöchentliche Gitarrenstunden",
-        "Zugang zu exklusiven Lernmaterialien",
+        "Exklusive Lernmaterialien",
         "Monatliches Feedback von Lehrern",
         "Zugang zur Online-Lernplattform",
         "Monatliche Musiktheorie-Workshops",
-        "Zugang zu exklusiven Masterclasses",
+        "Zugang zu Masterclasses",
       ],
+      isHighlighted: true,
     },
     {
-      heading: "Master Plan",
+      heading: "Fortgeschrittene",
       description:
-        "Für fortgeschrittene Gitarristen, die die perfekte Beherrschung erreichen wollen.",
+        "Für fortgeschrittene Gitarristen, die ihre Technik perfektionieren wollen.",
       price: "129.99€",
       priceUnit: "Monat",
       benefits: [
         "Zweimal wöchentliche Gitarrenstunden",
-        "Exklusive Lernmaterialien für fortgeschrittene Techniken",
-        "Wöchentliche persönliche Coaching-Sitzungen",
-        "Zugang zu Meisterklassen und Seminaren",
-        "Zugang zur VIP-Community für Musiker",
-        "Monatliches Live-Coaching mit renommierten Gitarristen",
+        "Exklusive Lernmaterialien für Fortgeschrittene",
+        "Wöchentliche Coaching-Sitzungen",
+        "Zugang zu Meisterklassen",
         "Individuelle Karriereberatung",
       ],
     },
@@ -50,11 +49,11 @@ export const pricingPlans = {
     {
       heading: "5er Karte",
       description:
-        "Ideal für Schüler*innen, die regelmäßig, aber nicht zu häufig lernen wollen. 5 Stunden Gitarrenunterricht nach Wahl.",
+        "Ideal für Schüler*innen, die flexibel und ohne langfristigen Vertrag lernen möchten.",
       price: "249.95€",
       priceUnit: "5 Stunden",
       benefits: [
-        "5 Einzelstunden Gitarrenunterricht (je 1 Stunde)",
+        "5 Einzelstunden Gitarrenunterricht",
         "Zugang zu grundlegenden Lernmaterialien",
         "Flexibilität bei der Stundenbuchung",
         "Kein langfristiger Vertrag",
@@ -65,16 +64,17 @@ export const pricingPlans = {
     {
       heading: "10er Karte",
       description:
-        "Die perfekte Lösung für flexibles Lernen ohne Vertrag. Hol dir 10 Einzelstunden Gitarrenunterricht nach Bedarf.",
+        "Die perfekte Wahl für Schüler*innen, die regelmäßig und ohne Vertrag lernen möchten.",
       price: "399.90€",
       priceUnit: "10 Stunden",
       benefits: [
-        "10 Einzelstunden Gitarrenunterricht (je 1 Stunde)",
+        "10 Einzelstunden Gitarrenunterricht",
         "Zugang zu grundlegenden Lernmaterialien",
         "Flexibilität bei der Stundenbuchung",
         "Kein langfristiger Vertrag",
+        "Option ein Thema zu vertiefen",
         "Zugang zur Online-Lernplattform",
-        "Individuelle Anpassung der Stunden auf dein Lernziel",
+        "Individuelle Anpassung der Stunden",
       ],
     },
   ],

@@ -14,6 +14,8 @@ export default {
         paarl: "#A1662F",
         copper: "#C68F35",
         sand: "#EFCC8C",
+        spicyMustard: "#6D5A0A",
+        sambuca: "#35210f",
       },
     },
   },
