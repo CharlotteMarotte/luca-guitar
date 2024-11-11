@@ -6,6 +6,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      clipPath: {
+        "curve-top": "ellipse(70% 50% at 50% 0)",
+        "curve-bottom": "ellipse(70% 50% at 50% 100%)",
+        wave: "polygon(0 50%, 100% 0%, 100% 100%, 0 100%)",
+      },
       fontFamily: {
         heading: ['"Azeret Mono"', ...defaultTheme.fontFamily.sans],
         body: ["Questrial", ...defaultTheme.fontFamily.sans],

@@ -25,7 +25,7 @@ const Navbar = () => {
   ]
 
   return (
-    <div className='px-20 py-8 flex flex-wrap place-items-center lg:border-y lg:border-white'>
+    <div className='px-6 py-8 flex flex-wrap place-items-center lg:border-y lg:border-white bg-sambuca bg-opacity-50 relative z-10 backdrop-blur-sm'>
       <section className='relative mx-auto w-full'>
         <nav className='flex justify-between items-center text-white w-full'>
           <p className='text-2xl italic font-heading font-sm mr-8 pr-8 lg:border-r lg:border-white'>Luca de Michieli</p>
@@ -45,6 +45,7 @@ const Navbar = () => {
           </a>
         </nav>
 
+        {/* Mobile menu */}
         <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden bg-paarl transition-all duration-300 w-full py-4`}>
           <ul className='flex flex-col space-y-4 font-body'>
             {menuItems.map(({ name, href }) => (

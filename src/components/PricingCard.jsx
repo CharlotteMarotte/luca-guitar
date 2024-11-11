@@ -34,7 +34,7 @@ const PricingCard = ({ pricingPlan }) => {
           </div>
 
           <div className='inline-flex items-center pt-4 justify-center'>
-            <PrimaryButton className='border-0'>Anmelden</PrimaryButton> {/* Remove border for the button */}
+            <PrimaryButton className='border-0'>Anmelden</PrimaryButton>
           </div>
         </div>
       </div>
