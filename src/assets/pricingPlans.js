@@ -1,80 +1,104 @@
 export const pricingPlans = {
   withContract: [
     {
-      heading: "Anfänger",
+      heading: "Probestunde",
       description:
-        "Der ideale Plan für Anfänger, die langfristig das Gitarrenspiel erlernen möchten.",
-      price: "39.99€",
-      priceUnit: "Monat",
-      benefits: [
-        "Wöchentliche Gitarrenstunden",
-        "Zugang zu Kursmaterialien",
-        "Monatliches Feedback von Lehrern",
-        "Zugang zur Online-Lernplattform",
-        "Konzertvorbereitung (optional)",
+        "Zum gegenseitigen Kennenlernen. Wir können uns anschauen, wo deine Interessen liegen und wie ich dich am besten unterstützen kann.",
+      priceOptions: [
+        {
+          price: "20€",
+        },
       ],
     },
     {
-      heading: "Mittelstufe",
+      heading: "Ab vier Terminen/Monat",
       description:
-        "Für Gitarristen, die ihre Fähigkeiten erweitern und vertiefen möchten.",
-      price: "69.99€",
-      priceUnit: "Monat",
-      benefits: [
-        "Wöchentliche Gitarrenstunden",
-        "Exklusive Lernmaterialien",
-        "Monatliches Feedback von Lehrern",
-        "Zugang zur Online-Lernplattform",
-        "Monatliche Musiktheorie-Workshops",
-        "Zugang zu Masterclasses",
+        "Vertrag, vierteljährlich kündbar. Wöchentliche Unterrichtseinheiten, angepasst an deine Bedürfnisse.",
+      priceOptions: [
+        {
+          duration: "60 Minuten",
+          price: "35€",
+          priceUnit: "pro Woche",
+        },
+        {
+          duration: "45 Minuten",
+          price: "30€",
+          priceUnit: "pro Woche",
+        },
       ],
       isHighlighted: true,
+      benefits: [
+        "Regelmäßiger fester Termin ",
+        "Unterrichtsmaterialien (Noten, Tabs)",
+        "Kaufberatung Gitarre",
+        "Hausbesuch möglich gegen Aufpreis",
+        "Unterricht in Musiktheorie, Gehörbildung, Noten/Tabs lesen (optional)",
+      ],
     },
     {
-      heading: "Fortgeschrittene",
+      heading: "Zwei bis drei Termine/Monat",
       description:
-        "Für fortgeschrittene Gitarristen, die ihre Technik perfektionieren wollen.",
-      price: "129.99€",
-      priceUnit: "Monat",
+        "Vertrag, vierteljährlich kündbar. Regelmäßige Unterrichtseinheiten, angepasst an deine Bedürfnisse.",
+      priceOptions: [
+        {
+          duration: "60 Minuten",
+          price: "40€",
+        },
+        {
+          duration: "45 Minuten",
+          price: "35€",
+        },
+      ],
       benefits: [
-        "Zweimal wöchentliche Gitarrenstunden",
-        "Exklusive Lernmaterialien für Fortgeschrittene",
-        "Wöchentliche Coaching-Sitzungen",
-        "Zugang zu Meisterklassen",
-        "Individuelle Karriereberatung",
+        "Regelmäßiger fester Termin ",
+        "Unterrichtsmaterialien (Noten, Tabs)",
+        "Kaufberatung Gitarre",
+        "Hausbesuch möglich gegen Aufpreis",
+        "Unterricht in Musiktheorie, Gehörbildung, Noten/Tabs lesen (optional)",
       ],
     },
   ],
   withoutContract: [
     {
-      heading: "5er Karte",
+      heading: "Einzelstunde",
       description:
-        "Ideal für Schüler*innen, die flexibel und ohne langfristigen Vertrag lernen möchten.",
-      price: "249.95€",
-      priceUnit: "5 Stunden",
+        "Ideal für gezielte Vertiefung oder als Geschenk-Gutschein. 12 Monate gültig.",
+      priceOptions: [
+        {
+          duration: "60 Minuten",
+          price: "47€",
+        },
+        {
+          duration: "45 Minuten",
+          price: "42€",
+        },
+      ],
       benefits: [
-        "5 Einzelstunden Gitarrenunterricht",
         "Zugang zu grundlegenden Lernmaterialien",
+        "Möglichkeit ein Thema zu vertiefen",
         "Flexibilität bei der Stundenbuchung",
         "Kein langfristiger Vertrag",
-        "Option auf individuelle Lernschwerpunkte",
-        "Zugang zur Online-Lernplattform",
       ],
     },
     {
-      heading: "10er Karte",
+      heading: "Zeitkarten (2er/5er/10er)",
       description:
-        "Die perfekte Wahl für Schüler*innen, die regelmäßig und ohne Vertrag lernen möchten.",
-      price: "399.90€",
-      priceUnit: "10 Stunden",
+        "Flexibilität für Berufstätige oder als Geschenk-Gutschein. 12 Monate gültig.",
+      priceOptions: [
+        {
+          duration: "60 Minuten",
+          price: "45€",
+        },
+        {
+          duration: "45 Minuten",
+          price: "40€",
+        },
+      ],
       benefits: [
-        "10 Einzelstunden Gitarrenunterricht",
+        "Übertragbar",
         "Zugang zu grundlegenden Lernmaterialien",
         "Flexibilität bei der Stundenbuchung",
         "Kein langfristiger Vertrag",
-        "Option ein Thema zu vertiefen",
-        "Zugang zur Online-Lernplattform",
-        "Individuelle Anpassung der Stunden",
       ],
     },
   ],

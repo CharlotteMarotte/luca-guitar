@@ -1,12 +1,7 @@
 import { PrimaryButton } from "@components";
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config.js";
 import { SocialIcon } from "react-social-icons";
 
 const Contact = () => {
-  const fullConfig = resolveConfig(tailwindConfig);
-  const paarlHex = fullConfig.theme.colors.paarl;
-
   return (
     <section className="relative bg-paarl text-white py-16">
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -23,7 +18,6 @@ const Contact = () => {
             Bereit für deine erste Stunde?
           </h3>
 
-          {/* Flex container for button and contact icons */}
           <div className="flex justify-center items-center space-x-4">
             <PrimaryButton>
               <a
