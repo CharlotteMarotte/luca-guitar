@@ -25,7 +25,7 @@ const Navbar = () => {
   ]
 
   return (
-    <div className='px-6 py-8 flex flex-wrap place-items-center lg:border-y lg:border-white bg-sambuca bg-opacity-50 relative z-10 backdrop-blur-sm'>
+    <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-white bg-paarl relative z-10 '>
       <section className='relative mx-auto w-full'>
         <nav className='flex justify-between items-center text-white w-full'>
           <p className='text-2xl italic font-heading font-sm mr-8 pr-8 lg:border-r lg:border-white'>Luca de Michieli</p>

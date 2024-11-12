@@ -7,8 +7,8 @@ const App = () => {
     <Layout>
       <About />
       <ParallaxScroll imageUrl={guitarStock} />
-      <Pricing />
       <Teaching />
+      <Pricing />
       <Contact />
     </Layout>
   );

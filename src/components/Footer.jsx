@@ -4,10 +4,10 @@ import tailwindConfig from '../../tailwind.config.js'
 
 const Footer = () => {
   const fullConfig = resolveConfig(tailwindConfig)
-  const copperHex = fullConfig.theme.colors.copper
+  const paarlHex = fullConfig.theme.colors.paarl
   return (
     <div className='bg-spicyMustard text-white'>
-      <ShapeDivider type='curveTop' fillColor={copperHex} />
+      <ShapeDivider type='curveTop' fillColor={paarlHex} backgroundColor={'spicyMustard'} />
       <div className='p-10 text-center font-body'>
         Icons made from
         <a href='https://www.onlinewebfonts.com/icon'>svg icons</a>is licensed by CC BY 4.0

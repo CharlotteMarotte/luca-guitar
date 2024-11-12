@@ -1,4 +1,4 @@
-const ShapeDivider = ({ type = 'default', fillColor = '#b87333', className = '' }) => {
+const ShapeDivider = ({ type = 'default', fillColor = '#b87333', backgroundColor = 'white', className = '' }) => {
   const shapePaths = {
     opaqueWavesBottom: [
       {
@@ -26,21 +26,9 @@ const ShapeDivider = ({ type = 'default', fillColor = '#b87333', className = '' 
         opacity: 1
       }
     ],
-    assymetricalCurveTop: [
+    customShapeBottom: [
       {
-        d: 'M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z',
-        opacity: 1
-      }
-    ],
-    waveTop: [
-      {
-        d: 'M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z',
-        opacity: 1
-      }
-    ],
-    curveTop: [
-      {
-        d: 'M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z',
+        d: 'M0,0V112.77C0,65.52,268.63,7.23,600,7.23S1200,65.52,1200,112.77V0Z',
         opacity: 1
       }
     ]
@@ -48,8 +36,10 @@ const ShapeDivider = ({ type = 'default', fillColor = '#b87333', className = '' 
 
   const shapeData = shapePaths[type] || shapePaths.waveBottom
 
+  const bgClass = `bg-${backgroundColor}`
+
   return (
-    <div className={`w-full ${className} relative overflow-hidden`}>
+    <div className={`w-full ${className} relative overflow-hidden ${bgClass}`}>
       <svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none' className='w-full'>
         {shapeData.map((path, index) => (
           <path key={index} d={path.d} opacity={path.opacity} fill={fillColor} className='shape-fill' />

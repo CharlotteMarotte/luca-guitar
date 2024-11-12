@@ -14,6 +14,7 @@ export default {
       fontFamily: {
         heading: ['"Azeret Mono"', ...defaultTheme.fontFamily.sans],
         body: ["Questrial", ...defaultTheme.fontFamily.sans],
+        handwritten: ["Homemade Apple"],
       },
       colors: {
         paarl: "#A1662F",

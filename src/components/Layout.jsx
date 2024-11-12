@@ -4,11 +4,11 @@ import { Welcome } from '@pages'
 
 const Layout = ({ children }) => {
   return (
-    <div className='min-h-screen relative'>
+    <div className='min-h-screen relative bg-transparent'>
       <header
         className='relative bg-cover bg-center h-screen'
         style={{
-          backgroundImage: 'url(https://cdn.pixabay.com/photo/2013/08/29/02/45/building-176932_1280.jpg)'
+          backgroundImage: 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
         }}
       >
         <Navbar />

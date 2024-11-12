@@ -1,32 +1,55 @@
-import { ShapeDivider } from "@components";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config.js";
+import { MusicNotes } from "@assets";
+import { ShapeDivider } from "@components";
 
 const Teaching = () => {
   const fullConfig = resolveConfig(tailwindConfig);
-  const copperHex = fullConfig.theme.colors.copper; // assuming sandHex is a valid color
+  const paarlHex = fullConfig.theme.colors.paarl;
 
   return (
-    <section className="relative text-white bg-paarl">
-      <ShapeDivider type="assymetricalCurveBottom" fillColor={copperHex} />
-      <div className="h-screen flex items-center justify-center transition-all pt-4">
-        <div className="container text-center">
-          <h2 className="text-4xl font-heading mb-4">Mein Unterricht</h2>
-          <p className="text-lg font-body max-w-3xl mx-auto">
-            Mein Ansatz ist es dich bestmöglich auf deinen individuellen,
-            musikalischen Weg zu unterstützen - das heißt du zeigst mir die
-            Musik und Lieder, die du lernen magst und ich hole dich dort ab wo
-            du bist. Je nach Bedarf zeige ich dir gerne übergeordneten
-            Zusammenhänge in der Musik. Ich versuche in meinem Unterricht ein
-            ausgewogenes Verhältnis von praktischen Fähig- und Fertigkeiten am
-            Instrument zu vermitteln, diese aber auch mit den theoretischen
-            Grundlagen und der Harmonielehre zu verbinden. So kannst du dich mit
-            der Zeit immer leichter und selbstständig in der Musik zurechtfinden
-            und deine Lieblingsstücke und Songs besser spielen lernen und
-            verstehen.
-          </p>
+    <section className="relative text-white bg-paarl  pt-16">
+      <div className="container mx-auto px-6 pb-16 px-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="flex justify-center md:justify-start">
+            <img
+              src={MusicNotes}
+              alt="Guitar teacher illustration"
+              className="w-full h-auto rounded-lg shadow-xl max-w-md"
+            />
+          </div>
+
+          <div className="text-center md:text-left">
+            <h2 className="text-4xl font-heading mb-4">
+              Dein individueller Gitarrenunterricht
+            </h2>
+            <p className="text-lg font-body max-w-xl mx-auto mb-6">
+              Du möchtest das Gitarrespielen lernen oder dein Spiel auf das
+              nächste Level bringen? In meinem Unterricht geht es vor allem
+              darum, dir zu helfen, deine musikalischen Ziele zu erreichen. Ich
+              gehe auf deine Wünsche ein – ob du ein bestimmtes Stück spielen
+              möchtest oder einfach die Grundlagen der Gitarre erlernen willst.
+              Gemeinsam schaffen wir eine individuelle Lernreise, die auf deine
+              Stärken und Interessen abgestimmt ist.
+            </p>
+            <p className="text-lg font-body max-w-xl mx-auto">
+              Mein Unterricht ist nicht nur praxisorientiert, sondern vermittelt
+              dir auch ein tiefes Verständnis für Musiktheorie und
+              Harmonielehre. So wirst du nicht nur technische Fähigkeiten am
+              Instrument entwickeln, sondern auch lernen, Musik intuitiv zu
+              verstehen und kreativ zu gestalten. Ich lege großen Wert darauf,
+              dass du die Freude an der Musik entdeckst und selbstbewusst deine
+              Lieblingsstücke spielen kannst.
+            </p>
+          </div>
         </div>
       </div>
+
+      <ShapeDivider
+        type="customShapeBottom"
+        fillColor={paarlHex}
+        backgroundColor="copper"
+      />
     </section>
   );
 };
