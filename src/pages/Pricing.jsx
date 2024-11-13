@@ -15,7 +15,7 @@ const Pricing = () => {
   };
 
   const renderPricingCard = (pricingPlan) => {
-    return <PricingCard pricingPlan={pricingPlan} />;
+    return <PricingCard pricingPlan={pricingPlan} key={pricingPlan.heading} />;
   };
 
   return (
@@ -25,16 +25,16 @@ const Pricing = () => {
           Preise mit und ohne Vertragsbindung
         </h2>
         <p className="mb-5 font-body text-white sm:text-xl">
-          Der{" "}
+          Der Vertrag kann{" "}
           <a
             href={Contract}
             target="_blank"
             rel="noreferrer"
             className="underline"
           >
-            Vertrag
+            hier
           </a>{" "}
-          kann hier eingesehen werden.
+          eingesehen werden.
         </p>
 
         <ToggleButton
