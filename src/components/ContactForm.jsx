@@ -16,13 +16,13 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
       .string()
       .min(1, 'Bitte gib einen Namen an')
       .max(70, 'Name muss kürzer als 70 Zeichen sein')
-      .regex(/^[A-Za-zÄäÖöÜüß\s]+$/, 'Name darf keine Zahlen oder Sonderzeichen enthalten'),
+      .regex(/^[A-Za-zÄäÖöÜüß\s.-]+$/, 'Name darf keine Zahlen oder Sonderzeichen enthalten'),
 
     email: z
       .string()
-      .min(1, 'Bitte gib eine Email-Adresse an') // Ensure email is not empty
+      .min(1, 'Bitte gib eine Email-Adresse an')
       .max(320, 'Email-Adresse muss kürzer als 320 Zeichen sein')
-      .email('Ungültige Email-Adresse'), // Ensure email is a valid email format
+      .email('Ungültige Email-Adresse'),
 
     message: z.string().min(1, 'Bitte gib eine Nachricht an').max(1000, 'Nachricht muss kürzer als 1000 Zeichen sein')
   })
@@ -30,9 +30,8 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
-    trigger // Add trigger to manually validate fields
+    trigger
   } = useForm({
     resolver: zodResolver(schema)
   })
@@ -42,17 +41,21 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
     setErrorMessage('')
   }, [])
 
+  // Handle the success of math validation
   const handleMathValidationSuccess = () => {
     setIsMathValid(true)
     setErrorMessage('')
   }
 
+  // Handle the error of math validation
   const handleMathValidationError = () => {
     setIsMathValid(false)
     setErrorMessage('Falsche Antwort. Versuche es erneut.')
   }
 
+  // Form submission
   const onSubmit = (data) => {
+    // Check the math validation when submitting the form
     if (!isMathValid) {
       setErrorMessage('Falsche Antwort. Versuche es erneut.')
       return
@@ -74,11 +77,6 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
       )
   }
 
-  // Handler for blur event to trigger validation for the name, email, and message fields
-  const handleFieldBlur = async (field) => {
-    await trigger(field) // Trigger validation for the specified field
-  }
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 font-body'>
       <div className='flex flex-col'>
@@ -88,8 +86,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
         <input
           type='text'
           {...register('name')}
-          onBlur={() => handleFieldBlur('name')} // Validate on blur for name field
-          className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:outline-none focus:ring-0 ${errors.name ? 'border-2 border-metallicCopper' : ''}`}
+          className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0 ${errors.name ? 'border-2 border-metallicCopper' : ''}`}
         />
         {errors.name && <span className='text-metallicCopper'>{errors.name.message}</span>}
       </div>
@@ -101,8 +98,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
         <input
           type='email'
           {...register('email')}
-          onBlur={() => handleFieldBlur('email')} // Validate on blur for email field
-          className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:outline-none focus:ring-0 ${errors.email ? 'border-2 border-metallicCopper' : ''}`}
+          className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0 ${errors.email ? 'border-2 border-metallicCopper' : ''}`}
         />
         {errors.email && <span className='text-metallicCopper'>{errors.email.message}</span>}
       </div>
@@ -114,14 +110,18 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
         <textarea
           {...register('message')}
           rows='4'
-          onBlur={() => handleFieldBlur('message')} // Validate on blur for message field
-          className={`bg-janna text-black p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 ${errors.message ? 'border-2 border-metallicCopper' : ''}`}
+          className={`bg-janna text-black p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-cafeNoir focus:border-2 ${errors.message ? 'border-2 border-metallicCopper' : ''}`}
         ></textarea>
         {errors.message && <span className='text-metallicCopper'>{errors.message.message}</span>}
       </div>
 
       <div className='flex space-x-4 mt-4 justify-between'>
-        <MathValidation onValidationError={handleMathValidationError} onValidationSuccess={handleMathValidationSuccess} />
+        {/* Pass the callbacks to MathValidation */}
+        <MathValidation
+          onValidationError={handleMathValidationError}
+          onValidationSuccess={handleMathValidationSuccess}
+          validateAnswer={handleMathValidationSuccess}
+        />
         <PrimaryButton backgroundColor='spicyMustard' disabled={sending}>
           {sending ? 'Sende...' : 'Nachricht senden'}
         </PrimaryButton>
