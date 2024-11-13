@@ -46,7 +46,7 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile menu */}
-        <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden bg-paarl transition-all duration-300 w-full py-4`}>
+        <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} lg:hidden bg-paarl transition-all duration-300 w-full py-4`}>
           <ul className='flex flex-col space-y-4 font-body'>
             {menuItems.map(({ name, href }) => (
               <li key={name}>

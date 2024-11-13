@@ -5,7 +5,9 @@ const About = () => {
     <section className="relative bg-paarl text-white min-h-screen flex items-center justify-center py-20">
       <div className="container flex flex-col lg:flex-row items-center px-8 md:px-20 gap-8 md:gap-16">
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-4xl font-heading mb-4">Über mich</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading mb-6 text-center">
+            Über mich
+          </h1>
 
           <p className="font-body text-lg md:text-justify mb-6">
             Ciao, ich bin Luca, 32 Jahre alt, und spiele Gitarre seit 22 Jahren.
