@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <div className='min-h-screen relative bg-transparent'>
       <header
-        className='relative bg-cover bg-center h-screen'
+        className='relative bg-cover bg-center lg:min-h-screen'
         style={{
           backgroundImage: 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
         }}

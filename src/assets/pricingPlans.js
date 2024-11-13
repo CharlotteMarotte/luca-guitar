@@ -60,7 +60,7 @@ export const pricingPlans = {
   ],
   withoutContract: [
     {
-      heading: "Einzelstunde",
+      heading: "Individuelle Einzelstunde",
       description:
         "Ideal für gezielte Vertiefung oder als Geschenk-Gutschein. 12 Monate gültig.",
       priceOptions: [
