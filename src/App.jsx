@@ -1,4 +1,4 @@
-import { About, Contact, Pricing, Teaching } from "@pages";
+import { About, Contact, Pricing, Teaching, Music } from "@pages";
 import { Layout, ParallaxScroll } from "@components";
 import { guitarStock } from "@assets";
 
@@ -9,6 +9,7 @@ const App = () => {
       <ParallaxScroll imageUrl={guitarStock} />
       <Teaching />
       <Pricing />
+      <Music />
       <Contact />
     </Layout>
   );
