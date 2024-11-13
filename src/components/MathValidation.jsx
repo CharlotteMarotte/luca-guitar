@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 
-const MathValidation = ({ onValidationError, onValidationSuccess }) => {
+const MathValidation = ({ onValidationError, onValidationSuccess, validateAnswerFromParent }) => {
   const [num1, setNum1] = useState(null)
   const [num2, setNum2] = useState(null)
   const [correctAnswer, setCorrectAnswer] = useState(null)
   const [userAnswer, setUserAnswer] = useState('')
 
+  // Generate random numbers for the math question
   useEffect(() => {
     const randomNum1 = Math.floor(Math.random() * 10) + 1
     const randomNum2 = Math.floor(Math.random() * 10) + 1
@@ -14,16 +15,23 @@ const MathValidation = ({ onValidationError, onValidationSuccess }) => {
     setCorrectAnswer(randomNum1 + randomNum2)
   }, [])
 
+  // Update user answer as they type
   const handleInputChange = (e) => {
     setUserAnswer(e.target.value)
   }
 
-  const validateAnswer = () => {
+  // The validation function is now called checkAnswer
+  const checkAnswer = () => {
     if (parseInt(userAnswer) === correctAnswer) {
       onValidationSuccess()
     } else {
       onValidationError()
     }
+  }
+
+  // Call the parent's validateAnswer function on form submission
+  const validateAnswer = () => {
+    validateAnswerFromParent() // Call the parent's validateAnswer function
   }
 
   return (
@@ -36,7 +44,7 @@ const MathValidation = ({ onValidationError, onValidationSuccess }) => {
           type='number'
           value={userAnswer}
           onChange={handleInputChange}
-          onBlur={validateAnswer}
+          onBlur={checkAnswer} // Check the answer immediately on blur
           required
           className='bg-white text-black p-3 rounded-3xl w-16 text-center text-lg remove-arrow'
         />
