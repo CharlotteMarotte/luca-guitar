@@ -25,24 +25,12 @@ const Navbar = () => {
   ]
 
   return (
-    <div className='px-6 py-3 flex flex-wrap place-items-center lg:bg-paarl relative z-10'>
+    <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-white bg-paarl relative z-10 '>
       <section className='relative mx-auto w-full'>
         <nav className='flex justify-between items-center text-white w-full'>
-          <p className='text-2xl italic font-heading font-sm mr-8 pr-8'>Luca de Michieli</p>
+          <p className='text-2xl italic font-heading font-sm mr-8 pr-8 lg:border-r lg:border-white'>Luca de Michieli</p>
           <div className='hidden lg:flex px-5 lg:px-12 py-6 w-full justify-center'>
-            <ul className='flex space-x-6 font-body'>
-              {/* Map through the menu items and render pill buttons */}
-              {menuItems.map(({ name, href }) => (
-                <li key={name}>
-                  <a
-                    href={href}
-                    className='inline-block py-2 px-6 rounded-full border-2 border-white text-white hover:bg-white hover:bg-opacity-20 hover:text-paarl transition-all duration-300'
-                  >
-                    {name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <ul className='flex space-x-8 font-body'>{menuItems.map(renderMenuItems)}</ul>
           </div>
           <a className='navbar-burger self-center mr-12 lg:hidden' href='#' onClick={toggleMobileMenu}>
             <svg
@@ -62,10 +50,7 @@ const Navbar = () => {
           <ul className='flex flex-col space-y-4 font-body'>
             {menuItems.map(({ name, href }) => (
               <li key={name}>
-                <a
-                  href={href}
-                  className='block py-2 px-6 rounded-full border-2 border-white text-white hover:bg-white hover:bg-opacity-20 hover:text-paarl transition-all duration-300 text-center'
-                >
+                <a className='text-white hover:text-gray-200 hover:bg-white hover:bg-opacity-20 rounded-lg block p-2' href={href}>
                   {name}
                 </a>
               </li>
