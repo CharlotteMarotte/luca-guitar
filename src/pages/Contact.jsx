@@ -46,8 +46,8 @@ const Contact = () => {
 
   return (
     <section className="relative bg-copper text-white py-16">
-      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="flex flex-col justify-center text-center md:text-left">
+      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 text-cafeNoir">
+        <div className="flex flex-col justify-center text-center md:text-left bg-diSerria p-6 rounded-3xl">
           <h2 className="text-3xl md:text-4xl font-heading mb-4">
             Interesse geweckt? Lass uns in Kontakt treten!
           </h2>

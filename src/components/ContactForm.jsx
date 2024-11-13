@@ -1,45 +1,59 @@
-import { useState } from 'react'
-import { PrimaryButton } from '@components'
+import { useState, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import emailjs from '@emailjs/browser'
+import { PrimaryButton } from '@components'
 import MathValidation from './MathValidation'
 
 const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
   const [sending, setSending] = useState(false)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-
   const [isMathValid, setIsMathValid] = useState(false)
-  const [validationError, setValidationError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData({
-      ...formData,
-      [name]: value
-    })
-  }
+  const schema = z.object({
+    name: z
+      .string()
+      .min(1, 'Bitte gib einen Namen an')
+      .max(70, 'Name muss kürzer als 70 Zeichen sein')
+      .regex(/^[A-Za-zÄäÖöÜüß\s]+$/, 'Name darf keine Zahlen oder Sonderzeichen enthalten'),
+
+    email: z
+      .string()
+      .min(1, 'Bitte gib eine Email-Adresse an') // Ensure email is not empty
+      .max(320, 'Email-Adresse muss kürzer als 320 Zeichen sein')
+      .email('Ungültige Email-Adresse'), // Ensure email is a valid email format
+
+    message: z.string().min(1, 'Bitte gib eine Nachricht an').max(1000, 'Nachricht muss kürzer als 1000 Zeichen sein')
+  })
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+    trigger // Add trigger to manually validate fields
+  } = useForm({
+    resolver: zodResolver(schema)
+  })
+
+  useEffect(() => {
+    setIsMathValid(false)
+    setErrorMessage('')
+  }, [])
 
   const handleMathValidationSuccess = () => {
     setIsMathValid(true)
-    setValidationError(false)
     setErrorMessage('')
   }
 
   const handleMathValidationError = () => {
     setIsMathValid(false)
-    setValidationError(true)
     setErrorMessage('Falsche Antwort. Versuche es erneut.')
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
+  const onSubmit = (data) => {
     if (!isMathValid) {
-      setValidationError(true)
       setErrorMessage('Falsche Antwort. Versuche es erneut.')
       return
     }
@@ -47,36 +61,37 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
     setSending(true)
 
     emailjs
-      .sendForm(import.meta.env.VITE_EMAIL_SERVICE_ID, import.meta.env.VITE_EMAIL_TEMPLATE_ID, e.target, import.meta.env.VITE_EMAIL_USER_ID)
+      .sendForm(import.meta.env.VITE_EMAIL_SERVICE_ID, import.meta.env.VITE_EMAIL_TEMPLATE_ID, data, import.meta.env.VITE_EMAIL_USER_ID)
       .then(
-        (result) => {
+        () => {
           setSending(false)
           onSubmitSuccess()
-          setFormData({ name: '', email: '', message: '' })
         },
-        (error) => {
+        () => {
           setSending(false)
           onSubmitError()
         }
       )
   }
 
+  // Handler for blur event to trigger validation for the name, email, and message fields
+  const handleFieldBlur = async (field) => {
+    await trigger(field) // Trigger validation for the specified field
+  }
+
   return (
-    <form onSubmit={handleSubmit} className='space-y-4 font-body'>
+    <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 font-body'>
       <div className='flex flex-col'>
         <label htmlFor='name' className='text-md mb-2'>
           Name
         </label>
         <input
-          maxLength={70}
           type='text'
-          id='name'
-          name='name'
-          value={formData.name}
-          onChange={handleInputChange}
-          required
-          className='bg-white text-black p-3 rounded-3xl pl-4'
+          {...register('name')}
+          onBlur={() => handleFieldBlur('name')} // Validate on blur for name field
+          className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:outline-none focus:ring-0 ${errors.name ? 'border-2 border-metallicCopper' : ''}`}
         />
+        {errors.name && <span className='text-metallicCopper'>{errors.name.message}</span>}
       </div>
 
       <div className='flex flex-col'>
@@ -84,15 +99,12 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           E-Mail
         </label>
         <input
-          maxLength={320}
           type='email'
-          id='email'
-          name='email'
-          value={formData.email}
-          onChange={handleInputChange}
-          required
-          className='bg-white text-black p-3 rounded-3xl pl-4'
+          {...register('email')}
+          onBlur={() => handleFieldBlur('email')} // Validate on blur for email field
+          className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:outline-none focus:ring-0 ${errors.email ? 'border-2 border-metallicCopper' : ''}`}
         />
+        {errors.email && <span className='text-metallicCopper'>{errors.email.message}</span>}
       </div>
 
       <div className='flex flex-col'>
@@ -100,33 +112,23 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           Nachricht
         </label>
         <textarea
-          maxLength={1000}
-          id='message'
-          name='message'
-          value={formData.message}
-          onChange={handleInputChange}
-          required
+          {...register('message')}
           rows='4'
-          className='bg-white text-black p-6 rounded-3xl pl-4'
+          onBlur={() => handleFieldBlur('message')} // Validate on blur for message field
+          className={`bg-janna text-black p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 ${errors.message ? 'border-2 border-metallicCopper' : ''}`}
         ></textarea>
+        {errors.message && <span className='text-metallicCopper'>{errors.message.message}</span>}
       </div>
 
-      {/* Container for Math Validation and Submit Button */}
       <div className='flex space-x-4 mt-4 justify-between'>
-        {/* Math Validation */}
         <MathValidation onValidationError={handleMathValidationError} onValidationSuccess={handleMathValidationSuccess} />
-
-        {/* Submit Button */}
-        <div>
-          <PrimaryButton backgroundColor='spicyMustard' disabled={sending}>
-            {sending ? 'Sende...' : 'Nachricht senden'}
-          </PrimaryButton>
-        </div>
+        <PrimaryButton backgroundColor='spicyMustard' disabled={sending}>
+          {sending ? 'Sende...' : 'Nachricht senden'}
+        </PrimaryButton>
       </div>
 
-      {/* Error message */}
-      {validationError && (
-        <p className='bg-redWood border-white border-2 text-white font-body text-lg p-3 rounded-3xl my-4 w-full max-w-md mx-auto text-center'>
+      {errorMessage && (
+        <p className='bg-metallicCopper border-white border-2 text-white font-body text-lg p-3 rounded-3xl my-4 w-full max-w-md mx-auto text-center'>
           {errorMessage}
         </p>
       )}
