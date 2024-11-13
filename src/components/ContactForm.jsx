@@ -31,7 +31,8 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
     register,
     handleSubmit,
     formState: { errors },
-    trigger
+    trigger,
+    reset
   } = useForm({
     resolver: zodResolver(schema)
   })
@@ -41,21 +42,16 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
     setErrorMessage('')
   }, [])
 
-  // Handle the success of math validation
   const handleMathValidationSuccess = () => {
     setIsMathValid(true)
     setErrorMessage('')
   }
 
-  // Handle the error of math validation
   const handleMathValidationError = () => {
     setIsMathValid(false)
-    setErrorMessage('Falsche Antwort. Versuche es erneut.')
   }
 
-  // Form submission
   const onSubmit = (data) => {
-    // Check the math validation when submitting the form
     if (!isMathValid) {
       setErrorMessage('Falsche Antwort. Versuche es erneut.')
       return
@@ -64,11 +60,21 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
     setSending(true)
 
     emailjs
-      .sendForm(import.meta.env.VITE_EMAIL_SERVICE_ID, import.meta.env.VITE_EMAIL_TEMPLATE_ID, data, import.meta.env.VITE_EMAIL_USER_ID)
+      .send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        {
+          name: data.name,
+          email: data.email,
+          message: data.message
+        },
+        import.meta.env.VITE_EMAIL_USER_ID
+      )
       .then(
         () => {
           setSending(false)
           onSubmitSuccess()
+          reset()
         },
         () => {
           setSending(false)
@@ -86,6 +92,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
         <input
           type='text'
           {...register('name')}
+          onBlur={() => trigger('name')}
           className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0 ${errors.name ? 'border-2 border-metallicCopper' : ''}`}
         />
         {errors.name && <span className='text-metallicCopper'>{errors.name.message}</span>}
@@ -98,6 +105,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
         <input
           type='email'
           {...register('email')}
+          onBlur={() => trigger('email')}
           className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0 ${errors.email ? 'border-2 border-metallicCopper' : ''}`}
         />
         {errors.email && <span className='text-metallicCopper'>{errors.email.message}</span>}
@@ -109,6 +117,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
         </label>
         <textarea
           {...register('message')}
+          onBlur={() => trigger('message')}
           rows='4'
           className={`bg-janna text-black p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-cafeNoir focus:border-2 ${errors.message ? 'border-2 border-metallicCopper' : ''}`}
         ></textarea>
@@ -116,12 +125,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
       </div>
 
       <div className='flex space-x-4 mt-4 justify-between'>
-        {/* Pass the callbacks to MathValidation */}
-        <MathValidation
-          onValidationError={handleMathValidationError}
-          onValidationSuccess={handleMathValidationSuccess}
-          validateAnswer={handleMathValidationSuccess}
-        />
+        <MathValidation onValidationError={handleMathValidationError} onValidationSuccess={handleMathValidationSuccess} />
         <PrimaryButton backgroundColor='spicyMustard' disabled={sending}>
           {sending ? 'Sende...' : 'Nachricht senden'}
         </PrimaryButton>
