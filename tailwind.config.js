@@ -12,8 +12,8 @@ export default {
         wave: "polygon(0 50%, 100% 0%, 100% 100%, 0 100%)",
       },
       fontFamily: {
-        heading: ['"Azeret Mono"', ...defaultTheme.fontFamily.sans],
-        body: ["Questrial", ...defaultTheme.fontFamily.sans],
+        heading: ["Philosopher", ...defaultTheme.fontFamily.sans],
+        body: ["Mulish", ...defaultTheme.fontFamily.sans],
         handwritten: ["Homemade Apple"],
       },
       colors: {

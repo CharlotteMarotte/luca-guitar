@@ -3,7 +3,7 @@ import { SocialIcon } from "react-social-icons";
 
 const Contact = () => {
   return (
-    <section className="relative bg-paarl text-white py-16">
+    <section className="relative bg-copper text-white py-16">
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="flex flex-col justify-center text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-heading mb-4">
@@ -19,13 +19,8 @@ const Contact = () => {
           </h3>
 
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <PrimaryButton className="flex-1 sm:max-w-xs">
-              <a
-                className="py-3 text-lg sm:text-xl md:text-2xl text-center"
-                href="mailto:kontakt@deineadresse.de"
-              >
-                Nachricht schreiben
-              </a>
+            <PrimaryButton backgroundColor="spicyMustard">
+              <a href="mailto:kontakt@deineadresse.de">Nachricht schreiben</a>
             </PrimaryButton>
 
             <a
@@ -56,7 +51,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden shadow-lg">
+        <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden shadow-lg ">
           <iframe
             title="Google Maps"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.2179847488793!2d13.4050!3d52.5200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e23c8f6c2f1%3A0x8c349a6be9f1f24a!2sDeine+Stra%C3%9Fe+123%2C+12345+Berlin!5e0!3m2!1sde!2sde!4v1631051931410!5m2!1sde!2sde"
