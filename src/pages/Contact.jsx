@@ -6,22 +6,22 @@ const Contact = () => {
     <section className="relative bg-paarl text-white py-16">
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="flex flex-col justify-center text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-heading mb-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-heading mb-4">
             Interesse geweckt? Lass uns in Kontakt treten!
           </h2>
-          <p className="text-lg md:text-xl mb-6 font-body text-center">
+          <p className="text-lg md:text-xl mb-6 font-body">
             Möchtest du mehr erfahren oder eine Probestunde buchen? Schreib mir
             eine E-Mail oder kontaktiere mich über WhatsApp.
           </p>
 
-          <h3 className="text-xl md:text-2xl font-heading text-white mb-4 text-center">
+          <h3 className="text-xl md:text-2xl font-heading text-white mb-4">
             Bereit für deine erste Stunde?
           </h3>
 
-          <div className="flex justify-center items-center space-x-4">
-            <PrimaryButton>
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <PrimaryButton className="flex-1 sm:max-w-xs">
               <a
-                className="px-10 py-4 text-2xl md:text-xl"
+                className="py-3 text-lg sm:text-xl md:text-2xl text-center"
                 href="mailto:kontakt@deineadresse.de"
               >
                 Nachricht schreiben
@@ -32,20 +32,27 @@ const Contact = () => {
               href="https://wa.me/2348100000000"
               target="_blank"
               className="inline-block"
-            ></a>
+            >
+              <SocialIcon
+                url="https://whatsapp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10"
+              />
+            </a>
 
-            <SocialIcon
-              url="https://whatsapp.com"
-              href="https://wa.me/2348100000000"
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-            <SocialIcon
-              url="https://telegram.org"
+            <a
               href="https://t.me/lucademi"
               target="_blank"
-              rel="noopener noreferrer"
-            />
+              className="inline-block"
+            >
+              <SocialIcon
+                url="https://telegram.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10"
+              />
+            </a>
           </div>
         </div>
 
