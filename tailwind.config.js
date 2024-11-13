@@ -22,8 +22,22 @@ export default {
         sand: "#EFCC8C",
         spicyMustard: "#6D5A0A",
         sambuca: "#35210f",
+        redWood: "#a45a52",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        ".remove-arrow::-webkit-outer-spin-button, .remove-arrow::-webkit-inner-spin-button":
+          {
+            "-webkit-appearance": "none",
+            margin: "0",
+          },
+        ".remove-arrow": {
+          "-moz-appearance": "textfield",
+        },
+      });
+    },
+  ],
 };
