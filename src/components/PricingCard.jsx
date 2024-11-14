@@ -3,7 +3,6 @@ import PricingCardItem from './PricingCardItem'
 import PrimaryButton from './PrimaryButton'
 
 const PricingCard = ({ pricingPlan }) => {
-  // Default selected duration (either 45 or 60 minutes, or the first available option)
   const [selectedDuration, setSelectedDuration] = useState(() => {
     const defaultDuration = pricingPlan.priceOptions.find((option) => option.duration === '45 Minuten')
       ? '45 Minuten'
@@ -13,24 +12,19 @@ const PricingCard = ({ pricingPlan }) => {
     return defaultDuration
   })
 
-  // Check if the options for 45 or 60 minutes exist
   const has45MinOption = pricingPlan.priceOptions.some((option) => option.duration === '45 Minuten')
   const has60MinOption = pricingPlan.priceOptions.some((option) => option.duration === '60 Minuten')
 
-  // Find the selected option based on the selected duration
   const selectedOption = pricingPlan.priceOptions.find((option) => option.duration === selectedDuration)
 
-  // Function to toggle between durations
   const toggleDuration = (duration) => {
     setSelectedDuration(duration)
   }
 
-  // Return an error message if no selected option is found
   if (!selectedOption) {
     return <div>Fehler: Gewählte Option konnte nicht gefunden werden.</div>
   }
 
-  // Render the list of benefits
   const renderPricingCardItems = (benefit, index) => {
     return <PricingCardItem key={index} benefit={benefit} />
   }
@@ -46,7 +40,6 @@ const PricingCard = ({ pricingPlan }) => {
       >
         <h3 className='text-3xl font-heading text-sambuca mb-4'>{pricingPlan.heading}</h3>
 
-        {/* Duration toggle buttons */}
         {(has45MinOption || has60MinOption) && (
           <div className='flex justify-center mb-3'>
             <div className='flex border rounded-full'>
@@ -78,7 +71,6 @@ const PricingCard = ({ pricingPlan }) => {
             {pricingPlan.heading !== 'Probestunde' ? <span className='font-body'>/ {selectedOption.duration}</span> : <></>}
           </div>
 
-          {/* Render benefits list */}
           {pricingPlan.benefits && pricingPlan.benefits.length > 0 && (
             <div className='flex flex-col justify-between flex-grow'>
               <ul role='list' className='space-y-4 text-left'>
