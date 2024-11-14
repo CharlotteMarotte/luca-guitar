@@ -30,7 +30,7 @@ const Contact = () => {
         Etwas ist schief gelaufen. Bitte versuche es später noch einmal oder
         sende mir{" "}
         <a
-          href="mailto:your-email@example.com"
+          href="mailto:lucademichieli@posteo.net"
           className="text-amber-50 underline"
         >
           direkt eine Email.
