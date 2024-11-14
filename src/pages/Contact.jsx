@@ -39,9 +39,6 @@ const Contact = () => {
     );
     setIsError(true);
     setIsSubmitted(false);
-    setTimeout(() => {
-      setIsError(false), setResponseMessage("");
-    }, 10000);
   };
 
   return (

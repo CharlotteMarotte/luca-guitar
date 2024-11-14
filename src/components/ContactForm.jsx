@@ -16,7 +16,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
       .string()
       .min(1, 'Bitte gib einen Namen an')
       .max(70, 'Name muss kürzer als 70 Zeichen sein')
-      .regex(/^[A-Za-zÄäÖöÜüß\s.-]+$/, 'Name darf keine Zahlen oder Sonderzeichen enthalten'),
+      .regex(/^[\p{L}\s-]+$/u, 'Name darf keine Zahlen oder Sonderzeichen enthalten'),
 
     email: z
       .string()
