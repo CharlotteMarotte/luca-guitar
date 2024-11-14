@@ -89,7 +89,7 @@ const PricingCard = ({ pricingPlan }) => {
 
           <div className='inline-flex items-center pt-4 justify-center'>
             <PrimaryButton className='border-0'>
-              <a className='px-10 py-4 text-2xl md:text-xl' href='mailto:kontakt@deineadresse.de'>
+              <a className='px-10 py-4 text-2xl md:text-xl' href='mailto:lucademichieli@posteo.net'>
                 Anmelden
               </a>
             </PrimaryButton>
