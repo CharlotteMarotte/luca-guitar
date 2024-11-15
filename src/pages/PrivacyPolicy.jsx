@@ -3,8 +3,8 @@ import { PageScaffold, Layout } from "@components";
 const PrivacyPolicy = () => {
   return (
     <Layout>
-      <PageScaffold title="Datenschutzerklärung" bgColor="bg-copper">
-        <section className="relative text-black min-h-screen py-20 md:px-20">
+      <PageScaffold title="Datenschutzerklärung" bgColor="bg-copper pt-8">
+        <section className=" text-black min-h-screen py-20 md:px-20">
           <h1 className="text-3xl font-semibold mb-6">Privacy Policy</h1>
           <p className="mb-4">
             Icons made from{" "}

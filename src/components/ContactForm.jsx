@@ -124,8 +124,9 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
         {errors.message && <span className='text-metallicCopper'>{errors.message.message}</span>}
       </div>
 
-      <div className='flex space-x-4 mt-4 justify-between'>
+      <div className='flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 mt-4 justify-between'>
         <MathValidation onValidationError={handleMathValidationError} onValidationSuccess={handleMathValidationSuccess} />
+
         <PrimaryButton backgroundColor='spicyMustard' disabled={sending}>
           {sending ? 'Sende...' : 'Nachricht senden'}
         </PrimaryButton>

@@ -3,10 +3,10 @@ import { PageScaffold } from "@components";
 
 const About = () => {
   return (
-    <PageScaffold bgColor="bg-paarl" title="">
+    <PageScaffold bgColor="bg-paarl">
       <section
         id="about"
-        className="relative text-white py-20 min-h-screen flex items-center justify-center"
+        className=" text-white py-20 min-h-screen flex items-center justify-center"
       >
         <div className="container flex flex-col lg:flex-row items-center px-8 md:px-20 gap-8 md:gap-16">
           <div className="flex-1 text-center md:text-left">
