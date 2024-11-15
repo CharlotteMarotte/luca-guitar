@@ -27,9 +27,6 @@ const Pricing = () => {
     <PageScaffold title="Preise" bgColor="bg-copper">
       <section id="pricing" className="relative text-white">
         <div className="text-center mx-auto max-w-screen-md mb-8 lg:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading mb-6 text-center">
-            Preise mit und ohne Vertragsbindung
-          </h2>
           <p className="mb-5 font-body text-white sm:text-xl">
             Der Vertrag kann{" "}
             <a

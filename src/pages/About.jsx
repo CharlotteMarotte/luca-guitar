@@ -3,7 +3,7 @@ import { PageScaffold } from "@components";
 
 const About = () => {
   return (
-    <PageScaffold bgColor="bg-paarl" title="Über mich">
+    <PageScaffold bgColor="bg-paarl" title="">
       <section
         id="about"
         className="relative text-white py-20 min-h-screen flex items-center justify-center"

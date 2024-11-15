@@ -1,20 +1,19 @@
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config.js";
 import { MusicNotes } from "@assets";
 import { ShapeDivider, PageScaffold } from "@components";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config.js";
 
 const Teaching = () => {
   const fullConfig = resolveConfig(tailwindConfig);
   const paarlHex = fullConfig.theme.colors.paarl;
 
   return (
-    <PageScaffold title="Gitarrenunterricht" bgColor="bg-paarl">
+    <PageScaffold
+      title="Dein individueller Gitarrenunterricht"
+      bgColor="bg-paarl"
+    >
       <section id="teaching" className="relative text-white pt-16">
         <div className="container mx-auto pb-16 px-6">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading mb-6 text-center">
-            Dein individueller Gitarrenunterricht
-          </h2>
-
           <div className="gap-6 px-6 md:px-16">
             <div className="flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-12">
               <div className="w-full lg:w-1/2 max-h-[90vh] overflow-hidden rounded-lg shadow-xl">

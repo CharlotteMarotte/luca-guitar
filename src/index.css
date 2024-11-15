@@ -14,3 +14,8 @@
     color: white;
   }
 }
+
+@tailwind base;
+html {
+  scroll-behavior: smooth;
+}

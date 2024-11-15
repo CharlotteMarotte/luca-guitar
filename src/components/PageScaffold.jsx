@@ -1,6 +1,4 @@
-import { Outlet } from 'react-router-dom'
-
-const PageScaffold = ({ bgColor = 'bg-white', className = '', title }) => {
+const PageScaffold = ({ title, bgColor = 'bg-white', className = '', children }) => {
   return (
     <div className={`${bgColor} min-h-screen font-body ${className}`}>
       {title && (
@@ -8,11 +6,7 @@ const PageScaffold = ({ bgColor = 'bg-white', className = '', title }) => {
           <h1 className='text-4xl sm:text-5xl font-heading text-white'>{title}</h1>
         </div>
       )}
-
-      {/* Render the nested route content here */}
-      <main className='mx-4 lg:px-12'>
-        <Outlet /> {/* This renders the nested route content */}
-      </main>
+      <main className='mx-4 lg:px-12'>{children}</main>
     </div>
   )
 }

@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import MenuItem from './MenuItem'
+import { useNavigate } from 'react-router-dom'
+import { MenuItem } from '@components'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -17,17 +19,28 @@ const Navbar = () => {
   }
 
   const menuItems = [
-    { name: 'Über mich', href: '#about' },
-    { name: 'Gitarrenunterricht', href: '#teaching' },
-    { name: 'Preise', href: '#pricing' },
-    { name: 'Kontakt', href: '#contact' }
+    { name: 'Über mich', href: '/#about' },
+    { name: 'Gitarrenunterricht', href: '/#teaching' },
+    { name: 'Preise', href: '/#pricing' },
+    { name: 'Kontakt', href: '/#contact' }
   ]
+
+  const handleLogoClick = () => {
+    navigate('/')
+  }
 
   return (
     <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-white bg-paarl relative z-10'>
       <section className='relative mx-auto w-full'>
         <nav className='flex justify-between items-center text-white w-full'>
-          <a href='#home' className='text-2xl italic font-heading font-sm mr-8 pr-8 lg:border-r lg:border-white hover:text-amber-500'>
+          <a
+            href='#home'
+            onClick={(e) => {
+              e.preventDefault()
+              handleLogoClick()
+            }}
+            className='text-2xl italic font-heading font-sm mr-8 pr-8 lg:border-r lg:border-white hover:text-amber-500'
+          >
             Luca de Michieli
           </a>
           <div className='hidden lg:flex px-5 lg:px-12 py-6 w-full justify-center'>

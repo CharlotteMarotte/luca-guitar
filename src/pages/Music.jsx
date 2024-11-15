@@ -9,10 +9,6 @@ const Music = () => {
   return (
     <PageScaffold title="Meine Musik" bgColor="bg-paarl">
       <section className="relative bg-paarl text-white min-h-screen flex flex-col items-center justify-between">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading mb-6 text-center">
-          Meine Musik
-        </h1>
-
         <div className="pb-12 md:pb-32 container flex flex-col lg:flex-row items-center justify-center px-8 md:px-20 gap-8 flex-grow">
           <div className="w-full lg:w-1/2 pb-6">
             <div className="relative pb-[56.25%] w-full">
