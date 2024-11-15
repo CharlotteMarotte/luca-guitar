@@ -24,43 +24,44 @@ const Pricing = () => {
   };
 
   return (
-    <PageScaffold title="Preise" bgColor="bg-copper">
-      <section id="pricing" className="relative text-white">
-        <div className="text-center mx-auto max-w-screen-md mb-8 lg:mb-12">
-          <p className="mb-5 font-body text-white sm:text-xl">
-            Der Vertrag kann{" "}
-            <a
-              href={Contract}
-              target="_blank"
-              rel="noreferrer"
-              className="underline"
-            >
-              hier
-            </a>{" "}
-            eingesehen werden.
-          </p>
+    <div>
+      <PageScaffold title="Preise" bgColor="bg-copper" className="pb-12">
+        <section id="pricing" className="relative text-white">
+          <div className="text-center mx-auto max-w-screen-md mb-8 lg:mb-12">
+            <p className="mb-5 font-body text-white sm:text-xl">
+              Der Vertrag kann{" "}
+              <a
+                href={Contract}
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+              >
+                hier
+              </a>{" "}
+              eingesehen werden.
+            </p>
 
-          <ToggleButton
-            isChecked={isWithContract}
-            onToggle={handleToggleChange}
-            activeLabel="mit Vertrag"
-            inactiveLabel="ohne Vertrag"
-          />
-        </div>
+            <ToggleButton
+              isChecked={isWithContract}
+              onToggle={handleToggleChange}
+              activeLabel="mit Vertrag"
+              inactiveLabel="ohne Vertrag"
+            />
+          </div>
 
-        <div className="flex flex-wrap justify-center mt-10 gap-4 sm:gap-6 mb-12">
-          {isWithContract
-            ? pricingPlans.withContract.map(renderPricingCard)
-            : pricingPlans.withoutContract.map(renderPricingCard)}
-        </div>
-
-        <ShapeDivider
-          type="curveBottom"
-          fillColor={copperHex}
-          backgroundColor="paarl"
-        />
-      </section>
-    </PageScaffold>
+          <div className="flex flex-wrap justify-center mt-10 gap-4 sm:gap-6 ">
+            {isWithContract
+              ? pricingPlans.withContract.map(renderPricingCard)
+              : pricingPlans.withoutContract.map(renderPricingCard)}
+          </div>
+        </section>
+      </PageScaffold>
+      <ShapeDivider
+        type="curveBottom"
+        fillColor={copperHex}
+        backgroundColor="paarl"
+      />
+    </div>
   );
 };
 

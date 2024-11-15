@@ -1,7 +1,8 @@
 import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { Navbar, Footer } from '@components'
+import { Navbar, Footer, ParallaxScroll } from '@components'
 import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages'
+import { guitarStock } from '@assets'
 
 const Wrapper = ({ children }) => {
   const location = useLocation()
@@ -20,21 +21,33 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <div>
-        <Navbar />
-        <main>
-          {isHomePage ? (
-            <>
+        {/* Conditionally render both the header and the main content */}
+        {isHomePage ? (
+          <>
+            <header
+              className='relative bg-cover bg-center lg:min-h-screen'
+              style={{
+                backgroundImage: 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
+              }}
+            >
+              <Navbar />
               <Welcome />
+            </header>
+            <main>
               <About />
+              <ParallaxScroll imageUrl={guitarStock} />
               <Teaching />
               <Pricing />
               <Music />
               <Contact />
-            </>
-          ) : (
-            children
-          )}
-        </main>
+            </main>
+          </>
+        ) : (
+          <>
+            <Navbar />
+            <main>{children}</main>
+          </>
+        )}
 
         <Footer />
       </div>
