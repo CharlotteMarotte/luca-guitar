@@ -2,7 +2,7 @@ import { useRef } from "react";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config.js";
 import { useIsVisible } from "@hooks";
-import { MusicNotes, svgPaarlNoiseBase64 } from "@assets";
+import { MusicNotes } from "@assets";
 import { ShapeDivider, PageScaffold } from "@components";
 
 const Teaching = () => {
@@ -20,7 +20,7 @@ const Teaching = () => {
 
   return (
     <div>
-      <PageScaffold backgroundImage={svgPaarlNoiseBase64}>
+      <PageScaffold bgColor="bg-paarl">
         <section id="teaching" className=" text-white pt-16">
           <div className="container mx-auto px-8 md:px-20 pb-16">
             <div className="gap-6 ">
