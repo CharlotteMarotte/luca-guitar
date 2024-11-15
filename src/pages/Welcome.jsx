@@ -1,6 +1,9 @@
 const Welcome = () => {
   return (
-    <section className="flex items-center justify-center text-center text-white py-16 sm:py-24 lg:py-32 z-10">
+    <section
+      id="welcome"
+      className="flex items-center justify-center text-center text-white py-16 sm:py-24 lg:py-32 z-10"
+    >
       <div className="w-full px-4">
         <div className="p-6 rounded-lg bg-sambuca bg-opacity-40">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading mb-4">

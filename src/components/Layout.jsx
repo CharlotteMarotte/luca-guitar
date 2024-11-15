@@ -1,20 +1,21 @@
-import Navbar from './Navbar'
-import Footer from './Footer'
-import { Welcome } from '@pages'
+import { Navbar, Footer } from '@components' // Navbar and Footer components
+import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages' // All the page components
+import { Link } from 'react-router-dom' // For navigation to Impressum and Privacy pages
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
-    <div className='min-h-screen relative bg-transparent'>
-      <header
-        className='relative bg-cover bg-center lg:min-h-screen'
-        style={{
-          backgroundImage: 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
-        }}
-      >
-        <Navbar />
+    <div>
+      <Navbar />
+
+      <main>
         <Welcome />
-      </header>
-      <main>{children}</main>
+        <About />
+        <Teaching />
+        <Pricing />
+        <Music />
+        <Contact />
+      </main>
+
       <footer>
         <Footer />
       </footer>

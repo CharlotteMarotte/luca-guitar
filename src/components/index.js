@@ -1,4 +1,5 @@
 export { default as Layout } from './Layout'
+export { default as PageScaffold } from './PageScaffold'
 export { default as PrimaryButton } from './PrimaryButton'
 export { default as Navbar } from './Navbar'
 export { default as ParallaxScroll } from './ParallaxScroll'

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ShapeDivider } from '@components'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../../tailwind.config.js'
@@ -14,12 +15,12 @@ const Footer = () => {
         <div className='container mx-auto px-4'>
           <p className='text-sm md:text-base'>&copy; 2024 Luca de Michieli</p>
           <div className='mt-2 space-x-4 text-sm md:text-base'>
-            <a href='#' className='border-b-2 border-transparent hover:border-copper transition-all'>
+            <Link to='/impressum' className='border-b-2 border-transparent hover:border-copper transition-all'>
               Impressum
-            </a>
-            <a href='#' className='border-b-2 border-transparent hover:border-copper transition-all'>
+            </Link>
+            <Link to='/privacy' className='border-b-2 border-transparent hover:border-copper transition-all'>
               Datenschutzerklärung
-            </a>
+            </Link>
             <a href='mailto:lucademichieli@posteo.net' className='border-b-2 border-transparent hover:border-copper transition-all'>
               lucademichieli@posteo.net
             </a>

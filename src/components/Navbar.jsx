@@ -17,18 +17,19 @@ const Navbar = () => {
   }
 
   const menuItems = [
-    { name: 'Start', href: '#' },
-    { name: 'Über mich', href: '#' },
-    { name: 'Gitarrenunterricht', href: '#' },
-    { name: 'Preise', href: '#' },
-    { name: 'Kontakt', href: '#' }
+    { name: 'Über mich', href: '#about' },
+    { name: 'Gitarrenunterricht', href: '#teaching' },
+    { name: 'Preise', href: '#pricing' },
+    { name: 'Kontakt', href: '#contact' }
   ]
 
   return (
-    <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-white bg-paarl relative z-10 '>
+    <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-white bg-paarl relative z-10'>
       <section className='relative mx-auto w-full'>
         <nav className='flex justify-between items-center text-white w-full'>
-          <p className='text-2xl italic font-heading font-sm mr-8 pr-8 lg:border-r lg:border-white'>Luca de Michieli</p>
+          <a href='#home' className='text-2xl italic font-heading font-sm mr-8 pr-8 lg:border-r lg:border-white hover:text-amber-500'>
+            Luca de Michieli
+          </a>
           <div className='hidden lg:flex px-5 lg:px-12 py-6 w-full justify-center'>
             <ul className='flex space-x-8 font-body'>{menuItems.map(renderMenuItems)}</ul>
           </div>
