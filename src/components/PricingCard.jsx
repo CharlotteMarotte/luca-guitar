@@ -2,7 +2,7 @@ import PricingCardItem from './PricingCardItem'
 import PrimaryButton from './PrimaryButton'
 
 const PricingCard = ({ pricingPlan }) => {
-  const selectedOption = pricingPlan.priceOptions[0] || {}
+  const defaultOption = pricingPlan.priceOptions[0] || {}
 
   const renderPricingCardItems = (benefit, index) => {
     return <PricingCardItem key={index} benefit={benefit} />
@@ -23,8 +23,8 @@ const PricingCard = ({ pricingPlan }) => {
           <p className='font-body sm:text-lg text-sambuca mb-4'>{pricingPlan.description}</p>
 
           <div className='flex justify-center items-baseline my-4'>
-            <span className='mr-2 text-4xl font-heading'>{selectedOption.price}</span>
-            <span className='font-body'>/ {selectedOption.duration}</span>
+            <span className='mr-2 text-4xl font-heading'>{defaultOption.price}</span>
+            <span className='font-body'>/ {defaultOption.duration}</span>
           </div>
 
           {pricingPlan.benefits && pricingPlan.benefits.length > 0 && (
