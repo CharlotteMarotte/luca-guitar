@@ -5,29 +5,14 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      animation: {
-        fade: "fadeIn 3s ease-in-out",
-      },
-      keyframes: {
-        fadeIn: {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
-        },
-      },
-      animationDelay: {
-        300: "300ms",
-        500: "500ms",
-        700: "700ms",
-        1000: "1000ms",
-      },
       clipPath: {
         "curve-top": "ellipse(70% 50% at 50% 0)",
         "curve-bottom": "ellipse(70% 50% at 50% 100%)",
         wave: "polygon(0 50%, 100% 0%, 100% 100%, 0 100%)",
       },
       fontFamily: {
-        heading: ["Philosopher", ...defaultTheme.fontFamily.sans],
-        body: ["Mulish", ...defaultTheme.fontFamily.sans],
+        heading: ["Quicksand", ...defaultTheme.fontFamily.sans],
+        body: ["Quicksand", ...defaultTheme.fontFamily.sans],
         handwritten: ["Homemade Apple"],
       },
       colors: {

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useIsVisible } from "@hooks";
 import { ContactForm, PageScaffold } from "@components";
 import { SocialIcon } from "react-social-icons";
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -8,6 +9,9 @@ const Contact = () => {
   const [responseMessage, setResponseMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  const socialsRef = useRef();
+  const areSocialsVisible = useIsVisible(socialsRef);
 
   const fullConfig = resolveConfig(tailwindConfig);
   const sandHex = fullConfig.theme.colors.sand;
@@ -88,7 +92,10 @@ const Contact = () => {
               />
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
+            <div
+              ref={socialsRef}
+              className={`flex flex-wrap justify-center items-center gap-4 mt-6 transition-opacity duration-1000 ease-in ${areSocialsVisible ? "opacity-100" : "opacity-0"}`}
+            >
               <SocialIcon
                 url="https://whatsapp.com"
                 href="https://wa.me/2348100000000"

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useIsVisible } from "@hooks";
 import {
   PricingCard,
   ToggleButton,
@@ -15,6 +16,12 @@ const Pricing = () => {
   const fullConfig = resolveConfig(tailwindConfig);
   const copperHex = fullConfig.theme.colors.copper;
 
+  const paragraphRef = useRef();
+  const isParagraphVisible = useIsVisible(paragraphRef);
+
+  const pricingRef = useRef();
+  const isPricingVisible = useIsVisible(pricingRef);
+
   const handleToggleChange = (newState) => {
     setIsWithContract(newState);
   };
@@ -25,10 +32,20 @@ const Pricing = () => {
 
   return (
     <div>
-      <PageScaffold title="Preise" bgColor="bg-copper" className="pb-12">
-        <section id="pricing" className="relative text-white">
-          <div className="text-center mx-auto max-w-screen-md mb-8 lg:mb-12">
-            <p className="mb-5 font-body text-white sm:text-xl">
+      <PageScaffold
+        title="Preise mit und ohne Vertragsbindung"
+        bgColor="bg-copper"
+        className="pb-12"
+      >
+        <section id="pricing" className="relative text-white pt-6">
+          <div
+            ref={pricingRef}
+            className={`text-center mx-auto max-w-screen-md mb-8 lg:mb-12 transition-opacity duration-1000 ease-in ${isPricingVisible ? "opacity-100" : "opacity-0"}`}
+          >
+            <p
+              ref={paragraphRef}
+              className={`mb-5 font-body text-white sm:text-xl transition-opacity duration-1000 ease-in ${isParagraphVisible ? "opacity-100" : "opacity-0"}`}
+            >
               Der Vertrag kann{" "}
               <a
                 href={Contract}

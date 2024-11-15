@@ -1,7 +1,21 @@
+import { useRef } from "react";
+import { useIsVisible } from "@hooks";
 import { LucaPortrait } from "@assets";
 import { PageScaffold } from "@components";
 
 const About = () => {
+  const headingRef = useRef();
+  const isHeadingVisible = useIsVisible(headingRef);
+
+  const paragraph1Ref = useRef();
+  const isParagraph1Visible = useIsVisible(paragraph1Ref);
+
+  const paragraph2Ref = useRef();
+  const isParagraph2Visible = useIsVisible(paragraph2Ref);
+
+  const paragraph3Ref = useRef();
+  const isParagraph3Visible = useIsVisible(paragraph3Ref);
+
   return (
     <PageScaffold bgColor="bg-paarl">
       <section
@@ -9,12 +23,18 @@ const About = () => {
         className=" text-white py-20 min-h-screen flex items-center justify-center"
       >
         <div className="container flex flex-col lg:flex-row items-center px-8 md:px-20 gap-8 md:gap-16">
-          <div className="flex-1 text-center md:text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading mb-6 text-center">
+          <div className="flex-1">
+            <h1
+              ref={headingRef}
+              className={`text-center md:text-left text-3xl sm:text-4xl md:text-5xl font-heading mb-6 transition-opacity duration-1000 ease-in ${isHeadingVisible ? "opacity-100" : "opacity-0"}`}
+            >
               Über mich
             </h1>
 
-            <p className="font-body text-lg md:text-justify mb-6">
+            <p
+              ref={paragraph1Ref}
+              className={`font-body text-lg md:text-justify mb-6 transition-opacity duration-1000 ease-in ${isParagraph1Visible ? "opacity-100" : "opacity-0"}`}
+            >
               Ciao, ich bin Luca, 32 Jahre alt, und spiele Gitarre seit 22
               Jahren. Ursprünglich aus Berlin, wurde ich schon früh von meinem
               Vater, der selbst Gitarre spielt, inspiriert. Als Kind habe ich
@@ -22,7 +42,10 @@ const About = () => {
               wie Jazz und Flamenco ausprobiert und vieles auch autodidaktisch
               erlernt.
             </p>
-            <p className="font-body text-lg md:text-justify mb-6">
+            <p
+              ref={paragraph2Ref}
+              className={`font-body text-lg md:text-justify mb-6 transition-opacity duration-1000 ease-in ${isParagraph2Visible ? "opacity-100" : "opacity-0"}`}
+            >
               Seit über 12 Jahren unterrichte ich Gitarre – vom Anfänger bis zum
               Fortgeschrittenen, auf Akustik-, Konzert- und E-Gitarre. Momentan
               liegt mein Fokus auf klassischer Gitarre, dem Komponieren eigener
@@ -31,7 +54,10 @@ const About = () => {
               Projekte engagiert – ein spannendes Feld, das meine kreative
               Arbeit immer wieder auf neue Weise herausfordert.
             </p>
-            <p className="font-body text-lg md:text-justify sm:text-left">
+            <p
+              ref={paragraph3Ref}
+              className={`font-body text-lg md:text-justify sm:text-left transition-opacity duration-1000 ease-in ${isParagraph3Visible ? "opacity-100" : "opacity-0"}`}
+            >
               Wenn du einen flexiblen und persönlichen Gitarrenunterricht
               suchst, der dich in deinem eigenen Tempo weiterbringt, freue ich
               mich darauf, mit dir zu arbeiten!

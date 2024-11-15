@@ -1,11 +1,18 @@
+import { useRef } from "react";
+import { useIsVisible } from "@hooks";
 import { PageScaffold, Layout } from "@components";
 
 const PrivacyPolicy = () => {
+  const paragraphRef = useRef();
+  const isParagraphVisible = useIsVisible(paragraphRef);
+
   return (
     <Layout>
       <PageScaffold title="Datenschutzerklärung" bgColor="bg-copper pt-8">
-        <section className=" text-black min-h-screen py-20 md:px-20">
-          <h1 className="text-3xl font-semibold mb-6">Privacy Policy</h1>
+        <section
+          ref={paragraphRef}
+          className={`text-black min-h-screen py-20 md:px-20 ${isParagraphVisible ? "opacity-100" : "opacity-0"}`}
+        >
           <p className="mb-4">
             Icons made from{" "}
             <a
