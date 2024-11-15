@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useIsVisible } from "@hooks";
-import { LucaPortrait } from "@assets";
+import { LucaPortrait, svgPaarlNoiseBase64 } from "@assets";
 import { PageScaffold } from "@components";
 
 const About = () => {
@@ -17,10 +17,10 @@ const About = () => {
   const isParagraph3Visible = useIsVisible(paragraph3Ref);
 
   return (
-    <PageScaffold bgColor="bg-paarl">
+    <PageScaffold backgroundImage={svgPaarlNoiseBase64}>
       <section
         id="about"
-        className=" text-white py-20 min-h-screen flex items-center justify-center"
+        className="text-white py-20 min-h-screen flex items-center justify-center"
       >
         <div className="container flex flex-col lg:flex-row items-center px-8 md:px-20 gap-8 md:gap-16">
           <div className="flex-1">

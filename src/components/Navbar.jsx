@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { svgPaarlNoiseBase64 } from '@assets'
 import { MenuItem } from '@components'
 
 const Navbar = () => {
@@ -30,7 +31,14 @@ const Navbar = () => {
   }
 
   return (
-    <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-white bg-paarl relative z-10'>
+    <div
+      style={{
+        backgroundImage: `url(${svgPaarlNoiseBase64})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+      className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-white bg-paarl relative z-10'
+    >
       <section className='relative mx-auto w-full'>
         <nav className='flex justify-between items-center text-white w-full'>
           <a
