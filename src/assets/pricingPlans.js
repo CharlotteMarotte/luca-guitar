@@ -6,7 +6,6 @@ export const pricingPlans = {
         "Zum gegenseitigen Kennenlernen. Wir können uns anschauen, wo deine Interessen liegen und wie ich dich am besten unterstützen kann.",
       priceOptions: [
         {
-          duration: "45 Minuten",
           price: "20€",
         },
       ],
@@ -19,6 +18,12 @@ export const pricingPlans = {
         {
           duration: "60 Minuten",
           price: "35€",
+          priceUnit: "pro Woche",
+        },
+        {
+          duration: "45 Minuten",
+          price: "30€",
+          priceUnit: "pro Woche",
         },
       ],
       isHighlighted: true,
@@ -28,7 +33,6 @@ export const pricingPlans = {
         "Kaufberatung Gitarre",
         "Hausbesuch möglich gegen Aufpreis",
         "Unterricht in Musiktheorie, Gehörbildung, Noten/Tabs lesen (optional)",
-        "45-minütiger Unterricht für 30€",
       ],
     },
     {
@@ -40,6 +44,10 @@ export const pricingPlans = {
           duration: "60 Minuten",
           price: "40€",
         },
+        {
+          duration: "45 Minuten",
+          price: "35€",
+        },
       ],
       benefits: [
         "Regelmäßiger fester Termin ",
@@ -47,7 +55,6 @@ export const pricingPlans = {
         "Kaufberatung Gitarre",
         "Hausbesuch möglich gegen Aufpreis",
         "Unterricht in Musiktheorie, Gehörbildung, Noten/Tabs lesen (optional)",
-        "45-minütiger Unterricht für 35€",
       ],
     },
   ],
@@ -61,13 +68,16 @@ export const pricingPlans = {
           duration: "60 Minuten",
           price: "47€",
         },
+        {
+          duration: "45 Minuten",
+          price: "42€",
+        },
       ],
       benefits: [
         "Zugang zu grundlegenden Lernmaterialien",
         "Möglichkeit ein Thema zu vertiefen",
         "Flexibilität bei der Stundenbuchung",
         "Kein langfristiger Vertrag",
-        "45-minütiger Unterricht für 42€",
       ],
     },
     {
@@ -79,13 +89,16 @@ export const pricingPlans = {
           duration: "60 Minuten",
           price: "45€",
         },
+        {
+          duration: "45 Minuten",
+          price: "40€",
+        },
       ],
       benefits: [
         "Übertragbar",
         "Zugang zu grundlegenden Lernmaterialien",
         "Flexibilität bei der Stundenbuchung",
         "Kein langfristiger Vertrag",
-        "45-minütiger Unterricht für 45€",
       ],
     },
   ],
