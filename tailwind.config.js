@@ -1,11 +1,25 @@
 /** @type {import('tailwindcss').Config} */
-
 import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      animation: {
+        fade: "fadeIn 3s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+      },
+      animationDelay: {
+        300: "300ms",
+        500: "500ms",
+        700: "700ms",
+        1000: "1000ms",
+      },
       clipPath: {
         "curve-top": "ellipse(70% 50% at 50% 0)",
         "curve-bottom": "ellipse(70% 50% at 50% 100%)",
