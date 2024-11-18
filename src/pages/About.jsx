@@ -16,7 +16,7 @@ const About = () => {
               </h1>
             </AnimateOnScroll>
             <AnimateOnScroll>
-              <p className="font-body text-lg md:text-justify mb-6">
+              <p className="font-body text-lg text-center md:text-justify mb-6">
                 Ciao, ich bin Luca, 32 Jahre alt, und spiele Gitarre seit 22
                 Jahren. Ursprünglich aus Berlin, wurde ich schon früh von meinem
                 Vater, der selbst Gitarre spielt, inspiriert. Als Kind habe ich
@@ -26,7 +26,7 @@ const About = () => {
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll>
-              <p className="font-body text-lg md:text-justify mb-6">
+              <p className="font-body text-lg text-center md:text-justify mb-6">
                 Seit über 12 Jahren unterrichte ich Gitarre – vom Anfänger bis
                 zum Fortgeschrittenen, auf Akustik-, Konzert- und E-Gitarre.
                 Momentan liegt mein Fokus auf klassischer Gitarre, dem
@@ -38,7 +38,7 @@ const About = () => {
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll>
-              <p className="font-body text-lg md:text-justify sm:text-left">
+              <p className="font-body text-lg text-center md:text-justify sm:text-left">
                 Wenn du einen flexiblen und persönlichen Gitarrenunterricht
                 suchst, der dich in deinem eigenen Tempo weiterbringt, freue ich
                 mich darauf, mit dir zu arbeiten!
