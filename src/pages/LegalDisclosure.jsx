@@ -7,7 +7,6 @@ const LegalDisclosure = () => {
         <section className=" min-h-screen py-20 md:px-20 font-body ">
           <AnimateOnScroll>
             <div
-              ref={paragraphRef}
               className={`max-w-4xl mx-auto p-12 bg-diSerria rounded-3xl text-cafeNoir`}
             >
               <p className="mb-4">Angaben gemäß § 5 DDG</p>
