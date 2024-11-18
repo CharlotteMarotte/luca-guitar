@@ -14,8 +14,6 @@ const Wrapper = ({ children }) => {
   return children
 }
 
-import AnimateOnScroll from '@components/AnimateOnScroll' // Import the AnimateOnScroll component
-
 const Layout = ({ children }) => {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
@@ -35,21 +33,12 @@ const Layout = ({ children }) => {
               <Welcome />
             </header>
             <main>
-              <AnimateOnScroll className='about-section'>
-                <About />
-              </AnimateOnScroll>
-              <AnimateOnScroll className='teaching-section'>
-                <Teaching />
-              </AnimateOnScroll>
-              <AnimateOnScroll className='pricing-section'>
-                <Pricing />
-              </AnimateOnScroll>
-              <AnimateOnScroll className='music-section'>
-                <Music />
-              </AnimateOnScroll>
-              <AnimateOnScroll className='contact-section'>
-                <Contact />
-              </AnimateOnScroll>
+              <About />
+              <ParallaxScroll imageUrl={guitarStock} />
+              <Teaching />
+              <Pricing />
+              <Music />
+              <Contact />
             </main>
           </>
         ) : (

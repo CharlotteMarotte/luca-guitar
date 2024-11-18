@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
-import { useIsVisible } from "@hooks";
+import { useState } from "react";
 import {
   PricingCard,
   ToggleButton,
   ShapeDivider,
   PageScaffold,
+  AnimateOnScroll,
 } from "@components";
 import { pricingPlans, Contract } from "@assets";
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -15,12 +15,6 @@ const Pricing = () => {
 
   const fullConfig = resolveConfig(tailwindConfig);
   const copperHex = fullConfig.theme.colors.copper;
-
-  const paragraphRef = useRef();
-  const isParagraphVisible = useIsVisible(paragraphRef);
-
-  const pricingRef = useRef();
-  const isPricingVisible = useIsVisible(pricingRef);
 
   const handleToggleChange = (newState) => {
     setIsWithContract(newState);
@@ -38,43 +32,39 @@ const Pricing = () => {
         className="pb-12"
       >
         <section id="pricing" className="relative text-white pt-6">
-          <div
-            ref={pricingRef}
-            className={`transition-opacity duration-1000 ease-in ${isPricingVisible ? "opacity-100" : "opacity-0"}`}
-          >
-            <div
-              ref={pricingRef}
-              className={"text-center mx-auto max-w-screen-md mb-8 lg:mb-12"}
-            >
-              <p
-                ref={paragraphRef}
-                className={`mb-5 font-body text-white sm:text-xl transition-opacity duration-1000 ease-in ${isParagraphVisible ? "opacity-100" : "opacity-0"}`}
+          <div>
+            <AnimateOnScroll>
+              <div
+                className={"text-center mx-auto max-w-screen-md mb-8 lg:mb-12"}
               >
-                Der Vertrag kann{" "}
-                <a
-                  href={Contract}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline"
-                >
-                  hier
-                </a>{" "}
-                eingesehen werden.
-              </p>
+                <p className={"mb-5 font-body text-white sm:text-xl"}>
+                  Der Vertrag kann{" "}
+                  <a
+                    href={Contract}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                  >
+                    hier
+                  </a>{" "}
+                  eingesehen werden.
+                </p>
 
-              <ToggleButton
-                isChecked={isWithContract}
-                onToggle={handleToggleChange}
-                activeLabel="mit Vertrag"
-                inactiveLabel="ohne Vertrag"
-              />
-            </div>
-
-            <div className="flex flex-wrap justify-center mt-10 gap-4 sm:gap-6 ">
-              {isWithContract
-                ? pricingPlans.withContract.map(renderPricingCard)
-                : pricingPlans.withoutContract.map(renderPricingCard)}
-            </div>
+                <ToggleButton
+                  isChecked={isWithContract}
+                  onToggle={handleToggleChange}
+                  activeLabel="mit Vertrag"
+                  inactiveLabel="ohne Vertrag"
+                />
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll>
+              <div className="flex flex-wrap justify-center mt-10 gap-4 sm:gap-6 ">
+                {isWithContract
+                  ? pricingPlans.withContract.map(renderPricingCard)
+                  : pricingPlans.withoutContract.map(renderPricingCard)}
+              </div>
+            </AnimateOnScroll>
           </div>
         </section>
       </PageScaffold>

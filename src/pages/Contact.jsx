@@ -1,6 +1,5 @@
-import { useState, useRef } from "react";
-import { useIsVisible } from "@hooks";
-import { ContactForm, PageScaffold } from "@components";
+import { useState } from "react";
+import { ContactForm, PageScaffold, AnimateOnScroll } from "@components";
 import { SocialIcon } from "react-social-icons";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config.js";
@@ -9,9 +8,6 @@ const Contact = () => {
   const [responseMessage, setResponseMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
-
-  const socialsRef = useRef();
-  const areSocialsVisible = useIsVisible(socialsRef);
 
   const fullConfig = resolveConfig(tailwindConfig);
   const sandHex = fullConfig.theme.colors.sand;
@@ -92,70 +88,73 @@ const Contact = () => {
               />
             </div>
 
-            <div
-              ref={socialsRef}
-              className={`flex flex-wrap justify-center items-center gap-4 mt-6 transition-opacity duration-1000 ease-in ${areSocialsVisible ? "opacity-100" : "opacity-0"}`}
-            >
-              <SocialIcon
-                url="https://whatsapp.com"
-                href="https://wa.me/2348100000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                bgColor={sandHex}
-                fgColor={paarlHex}
-                label="Whatsapp Kontakt"
-                style={{
-                  width: "70px",
-                  height: "70px",
-                }}
-                className="rounded-full hover:border-2 hover:border-white"
-              />
+            <AnimateOnScroll>
+              <div
+                className={
+                  "flex flex-wrap justify-center items-center gap-4 mt-6"
+                }
+              >
+                <SocialIcon
+                  url="https://whatsapp.com"
+                  href="https://wa.me/2348100000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  bgColor={sandHex}
+                  fgColor={paarlHex}
+                  label="Whatsapp Kontakt"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                  }}
+                  className="rounded-full hover:border-2 hover:border-white"
+                />
 
-              <SocialIcon
-                url="https://telegram.org"
-                href="https://t.me/lucademi"
-                target="_blank"
-                rel="noopener noreferrer"
-                bgColor={sandHex}
-                fgColor={paarlHex}
-                label="Telegram Kontakt"
-                style={{
-                  width: "70px",
-                  height: "70px",
-                }}
-                className="rounded-full hover:border-2 hover:border-white"
-              />
+                <SocialIcon
+                  url="https://telegram.org"
+                  href="https://t.me/lucademi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  bgColor={sandHex}
+                  fgColor={paarlHex}
+                  label="Telegram Kontakt"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                  }}
+                  className="rounded-full hover:border-2 hover:border-white"
+                />
 
-              <SocialIcon
-                url="https://www.instagram.com/"
-                href="https://www.instagram.com/luca_de_michieli"
-                target="_blank"
-                rel="noopener noreferrer"
-                bgColor={sandHex}
-                fgColor={paarlHex}
-                label="Mein Instagram Account"
-                style={{
-                  width: "70px",
-                  height: "70px",
-                }}
-                className="rounded-full hover:border-2 hover:border-white"
-              />
+                <SocialIcon
+                  url="https://www.instagram.com/"
+                  href="https://www.instagram.com/luca_de_michieli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  bgColor={sandHex}
+                  fgColor={paarlHex}
+                  label="Mein Instagram Account"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                  }}
+                  className="rounded-full hover:border-2 hover:border-white"
+                />
 
-              <SocialIcon
-                url="https://www.soundcloud.com"
-                href="https://soundcloud.com/lucademichieliguitar"
-                target="_blank"
-                rel="noopener noreferrer"
-                bgColor={sandHex}
-                fgColor={paarlHex}
-                label="Mein Soundcloud Account"
-                style={{
-                  width: "70px",
-                  height: "70px",
-                }}
-                className="rounded-full hover:border-2 hover:border-white"
-              />
-            </div>
+                <SocialIcon
+                  url="https://www.soundcloud.com"
+                  href="https://soundcloud.com/lucademichieliguitar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  bgColor={sandHex}
+                  fgColor={paarlHex}
+                  label="Mein Soundcloud Account"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                  }}
+                  className="rounded-full hover:border-2 hover:border-white"
+                />
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
