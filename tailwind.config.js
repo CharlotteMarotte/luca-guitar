@@ -21,8 +21,8 @@ export default {
       },
       fontFamily: {
         heading: ["Quicksand", ...defaultTheme.fontFamily.sans],
-        body: ["Quicksand", ...defaultTheme.fontFamily.sans],
-        handwritten: ["Homemade Apple"],
+        body: ["quicksand", ...defaultTheme.fontFamily.sans],
+        Quicksand: ["quicksand"],
       },
       colors: {
         paarl: "#A1662F",
