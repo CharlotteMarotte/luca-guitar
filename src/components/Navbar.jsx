@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MenuItem } from '@components'
+import clsx from 'clsx'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -60,7 +61,7 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile menu */}
-        <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} lg:hidden bg-paarl transition-all duration-300 w-full py-4`}>
+        <div className={clsx('lg:hidden bg-paarl transition-all duration-300 w-full py-4', isMobileMenuOpen ? 'block' : 'hidden')}>
           <ul className='flex flex-col space-y-4 font-body'>
             {menuItems.map(({ name, href }) => (
               <li key={name}>

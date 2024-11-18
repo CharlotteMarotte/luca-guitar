@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import emailjs from '@emailjs/browser'
 import { PrimaryButton } from '@components'
 import MathValidation from './MathValidation'
+import clsx from 'clsx'
 
 const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
   const [sending, setSending] = useState(false)
@@ -93,7 +94,10 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           type='text'
           {...register('name')}
           onBlur={() => trigger('name')}
-          className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0 ${errors.name ? 'border-2 border-metallicCopper' : ''}`}
+          className={clsx(
+            'bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0',
+            errors.name && 'border-2 border-metallicCopper'
+          )}
         />
         {errors.name && <span className='text-metallicCopper'>{errors.name.message}</span>}
       </div>
@@ -106,7 +110,10 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           type='email'
           {...register('email')}
           onBlur={() => trigger('email')}
-          className={`bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0 ${errors.email ? 'border-2 border-metallicCopper' : ''}`}
+          className={clsx(
+            'bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0',
+            errors.email && 'border-2 border-metallicCopper'
+          )}
         />
         {errors.email && <span className='text-metallicCopper'>{errors.email.message}</span>}
       </div>
@@ -119,7 +126,10 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           {...register('message')}
           onBlur={() => trigger('message')}
           rows='4'
-          className={`bg-janna text-black p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-cafeNoir focus:border-2 ${errors.message ? 'border-2 border-metallicCopper' : ''}`}
+          className={clsx(
+            'bg-janna text-black p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-cafeNoir focus:border-2',
+            errors.message && 'border-2 border-metallicCopper'
+          )}
         ></textarea>
         {errors.message && <span className='text-metallicCopper'>{errors.message.message}</span>}
       </div>

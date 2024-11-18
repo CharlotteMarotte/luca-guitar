@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+
 const ShapeDivider = ({ type = 'default', fillColor = '#b87333', backgroundColor = 'white', className = '' }) => {
   const shapePaths = {
     opaqueWavesBottom: [
@@ -36,10 +38,8 @@ const ShapeDivider = ({ type = 'default', fillColor = '#b87333', backgroundColor
 
   const shapeData = shapePaths[type] || shapePaths.waveBottom
 
-  const bgClass = `bg-${backgroundColor}`
-
   return (
-    <div className={`w-full ${className} relative overflow-hidden ${bgClass}`}>
+    <div className={clsx('w-full relative overflow-hidden', className, `bg-${backgroundColor}`)}>
       <svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none' className='w-full'>
         {shapeData.map((path, index) => (
           <path key={index} d={path.d} opacity={path.opacity} fill={fillColor} className='shape-fill' />

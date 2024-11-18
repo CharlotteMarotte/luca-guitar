@@ -3,6 +3,7 @@ import { ContactForm, PageScaffold, AnimateOnScroll } from "@components";
 import { SocialIcon } from "react-social-icons";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config.js";
+import clsx from "clsx";
 
 const Contact = () => {
   const [responseMessage, setResponseMessage] = useState("");
@@ -56,11 +57,13 @@ const Contact = () => {
 
             {responseMessage && (
               <div
-                className={`font-body text-lg p-6 rounded-3xl mb-4 w-full max-w-md mx-auto md:mx-0 border-2 ${
-                  isError
-                    ? "text-white bg-redWood"
-                    : "text-spicyMustard bg-sand"
-                }`}
+                className={clsx(
+                  "font-body text-lg p-6 rounded-3xl mb-4 w-full max-w-md mx-auto md:mx-0 border-2",
+                  {
+                    "text-white bg-redWood": isError,
+                    "text-spicyMustard bg-sand": !isError,
+                  }
+                )}
               >
                 {responseMessage}
               </div>
@@ -89,11 +92,7 @@ const Contact = () => {
             </div>
 
             <AnimateOnScroll>
-              <div
-                className={
-                  "flex flex-wrap justify-center items-center gap-4 mt-6"
-                }
-              >
+              <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
                 <SocialIcon
                   url="https://whatsapp.com"
                   href="https://wa.me/2348100000000"

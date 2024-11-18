@@ -1,5 +1,6 @@
 import PricingCardItem from './PricingCardItem'
 import PrimaryButton from './PrimaryButton'
+import clsx from 'clsx'
 
 const PricingCard = ({ pricingPlan }) => {
   const defaultOption = pricingPlan.priceOptions[0] || {}
@@ -11,11 +12,13 @@ const PricingCard = ({ pricingPlan }) => {
   return (
     <div className='p-4 max-w-sm'>
       <div
-        className={
-          pricingPlan.isHighlighted
-            ? 'flex flex-col p-6 mx-auto text-center text-sambuca bg-sand rounded-3xl border-4 border-white shadow h-auto sm:transform sm:translate-y-[-15px] sm:z-10 transition-transform duration-300 ease-in-out md:hover:translate-y-[-3rem]' // Highlighted cards will move more
-            : 'flex flex-col p-6 mx-auto text-center text-sambuca bg-sand rounded-3xl border-4 border-spicyMustard shadow h-auto transition-transform duration-300 ease-in-out md:hover:translate-y-[-3rem]' // Non-highlighted cards will move less
-        }
+        className={clsx(
+          'flex flex-col p-6 mx-auto text-center text-sambuca rounded-3xl shadow h-auto transition-transform duration-300 ease-in-out md:hover:translate-y-[-3rem]',
+          {
+            'bg-sand border-4 border-white sm:transform sm:translate-y-[-15px] sm:z-10': pricingPlan.isHighlighted,
+            'bg-sand border-4 border-spicyMustard': !pricingPlan.isHighlighted
+          }
+        )}
       >
         <h3 className='text-3xl font-heading text-sambuca mb-4'>{pricingPlan.heading}</h3>
 

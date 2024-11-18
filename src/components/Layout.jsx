@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { Navbar, Footer, ParallaxScroll } from '@components'
 import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages'
 import { guitarStock } from '@assets'
+import clsx from 'clsx'
 
 const Wrapper = ({ children }) => {
   const location = useLocation()
@@ -24,9 +25,11 @@ const Layout = ({ children }) => {
         {isHomePage ? (
           <>
             <header
-              className='relative bg-cover bg-center lg:min-h-screen'
+              className={clsx('relative bg-cover bg-center', 'lg:min-h-screen', !isHomePage && 'bg-gray-300')}
               style={{
-                backgroundImage: 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
+                backgroundImage: isHomePage
+                  ? 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
+                  : 'none'
               }}
             >
               <Navbar />
