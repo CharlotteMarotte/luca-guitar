@@ -14,6 +14,8 @@ const Wrapper = ({ children }) => {
   return children
 }
 
+import AnimateOnScroll from '@components/AnimateOnScroll' // Import the AnimateOnScroll component
+
 const Layout = ({ children }) => {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
@@ -21,7 +23,6 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <div>
-        {/* Conditionally render both the header and the main content */}
         {isHomePage ? (
           <>
             <header
@@ -34,12 +35,21 @@ const Layout = ({ children }) => {
               <Welcome />
             </header>
             <main>
-              <About />
-              <ParallaxScroll imageUrl={guitarStock} />
-              <Teaching />
-              <Pricing />
-              <Music />
-              <Contact />
+              <AnimateOnScroll className='about-section'>
+                <About />
+              </AnimateOnScroll>
+              <AnimateOnScroll className='teaching-section'>
+                <Teaching />
+              </AnimateOnScroll>
+              <AnimateOnScroll className='pricing-section'>
+                <Pricing />
+              </AnimateOnScroll>
+              <AnimateOnScroll className='music-section'>
+                <Music />
+              </AnimateOnScroll>
+              <AnimateOnScroll className='contact-section'>
+                <Contact />
+              </AnimateOnScroll>
             </main>
           </>
         ) : (
@@ -48,7 +58,6 @@ const Layout = ({ children }) => {
             <main>{children}</main>
           </>
         )}
-
         <Footer />
       </div>
     </Wrapper>

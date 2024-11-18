@@ -5,6 +5,15 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      animation: {
+        fadeIn: "fadeIn 2s ease-in forwards",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
       clipPath: {
         "curve-top": "ellipse(70% 50% at 50% 0)",
         "curve-bottom": "ellipse(70% 50% at 50% 100%)",
