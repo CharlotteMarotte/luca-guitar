@@ -85,7 +85,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 font-body'>
+    <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 '>
       <div className='flex flex-col'>
         <label htmlFor='name' className='text-md mb-2'>
           Name
@@ -142,7 +142,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
       </div>
 
       {errorMessage && (
-        <p className='bg-metallicCopper border-white border-2 text-white font-body text-lg p-3 rounded-3xl my-4 w-full max-w-md mx-auto text-center'>
+        <p className='bg-metallicCopper border-white border-2 text-white text-lg p-3 rounded-3xl my-4 w-full max-w-md mx-auto text-center'>
           {errorMessage}
         </p>
       )}

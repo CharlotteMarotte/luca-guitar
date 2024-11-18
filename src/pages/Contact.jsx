@@ -47,10 +47,10 @@ const Contact = () => {
       <section id="contact">
         <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 text-cafeNoir">
           <div className="flex flex-col justify-center text-center md:text-left bg-diSerria p-6 rounded-3xl">
-            <h2 className="text-3xl md:text-4xl font-heading mb-4">
+            <h2 className="text-3xl md:text-4xl  mb-4">
               Interesse geweckt? Lass uns in Kontakt treten!
             </h2>
-            <p className="text-lg md:text-xl mb-6 font-body">
+            <p className="text-lg md:text-xl mb-6 ">
               Möchtest du mehr erfahren oder eine Probestunde buchen? Fülle das
               Formular aus, um mit mir in Kontakt zu treten!
             </p>
@@ -58,7 +58,7 @@ const Contact = () => {
             {responseMessage && (
               <div
                 className={clsx(
-                  "font-body text-lg p-6 rounded-3xl mb-4 w-full max-w-md mx-auto md:mx-0 border-2",
+                  " text-lg p-6 rounded-3xl mb-4 w-full max-w-md mx-auto md:mx-0 border-2",
                   {
                     "text-white bg-redWood": isError,
                     "text-spicyMustard bg-sand": !isError,

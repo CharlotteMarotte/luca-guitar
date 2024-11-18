@@ -40,12 +40,12 @@ const Navbar = () => {
               e.preventDefault()
               handleLogoClick()
             }}
-            className='text-2xl italic font-heading font-sm mr-8 pr-8 lg:border-r lg:border-white hover:text-amber-500'
+            className='text-2xl italic  font-sm mr-8 pr-8 lg:border-r lg:border-white hover:text-amber-500'
           >
             Luca de Michieli
           </a>
           <div className='hidden lg:flex px-5 lg:px-12 py-6 w-full justify-center'>
-            <ul className='flex space-x-8 font-body'>{menuItems.map(renderMenuItems)}</ul>
+            <ul className='flex space-x-8 '>{menuItems.map(renderMenuItems)}</ul>
           </div>
           <a className='navbar-burger self-center mr-12 lg:hidden' href='#' onClick={toggleMobileMenu}>
             <svg
@@ -62,7 +62,7 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <div className={clsx('lg:hidden bg-paarl transition-all duration-300 w-full py-4', isMobileMenuOpen ? 'block' : 'hidden')}>
-          <ul className='flex flex-col space-y-4 font-body'>
+          <ul className='flex flex-col space-y-4 '>
             {menuItems.map(({ name, href }) => (
               <li key={name}>
                 <a className='text-white hover:text-gray-200 hover:bg-white hover:bg-opacity-20 rounded-lg block p-2' href={href}>

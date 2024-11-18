@@ -9,7 +9,7 @@ const PrimaryButton = ({ children, onClick, backgroundColor = 'copper', disabled
       onClick={onClick}
       disabled={disabled}
       className={clsx(
-        'px-6 py-3 border-solid border-2 border-white text-white font-body rounded-3xl transition-colors duration-300',
+        'px-6 py-3 border-solid border-2 border-white text-white rounded-3xl transition-colors duration-300',
         bgColor,
         hoverColor,
         {

@@ -3,11 +3,11 @@ import clsx from 'clsx'
 
 const PageScaffold = ({ title, bgColor = 'bg-white', className = '', children }) => {
   return (
-    <div className={clsx(bgColor, 'min-h-screen font-body relative', className)}>
+    <div className={clsx(bgColor, 'min-h-screen relative', className)}>
       {title && (
         <div className='text-center'>
           <AnimateOnScroll>
-            <h1 className='text-4xl sm:text-5xl font-heading text-white'>{title}</h1>
+            <h1 className='text-4xl sm:text-5xl  text-white'>{title}</h1>
           </AnimateOnScroll>
         </div>
       )}

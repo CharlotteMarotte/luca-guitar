@@ -20,9 +20,7 @@ export default {
         wave: "polygon(0 50%, 100% 0%, 100% 100%, 0 100%)",
       },
       fontFamily: {
-        heading: ["Quicksand", ...defaultTheme.fontFamily.sans],
-        body: ["quicksand", ...defaultTheme.fontFamily.sans],
-        Quicksand: ["quicksand"],
+        quicksand: ["Quicksand", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         paarl: "#A1662F",

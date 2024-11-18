@@ -4,7 +4,7 @@ const LegalDisclosure = () => {
   return (
     <Layout>
       <PageScaffold title="Impressum" bgColor="bg-copper pt-8">
-        <section className=" min-h-screen py-20 md:px-20 font-body ">
+        <section className=" min-h-screen py-20 md:px-20 ">
           <AnimateOnScroll>
             <div
               className={`max-w-4xl mx-auto p-12 bg-diSerria rounded-3xl text-cafeNoir`}

@@ -21,14 +21,10 @@ const Teaching = () => {
                     className="object-cover w-full h-full"
                   />
                 </div>
-                <div className="w-full lg:w-1/2 flex items-center justify-center text-center lg:text-justify text-xl font-body mt-6 lg:mt-0">
+                <div className="w-full lg:w-1/2 flex items-center justify-center text-center lg:text-justify text-xl mt-6 lg:mt-0">
                   <div>
                     <AnimateOnScroll>
-                      <h1
-                        className={
-                          "text-4xl sm:text-5xl font-heading text-white pb-8"
-                        }
-                      >
+                      <h1 className={"text-4xl sm:text-5xl  text-white pb-8"}>
                         Gitarrenunterricht
                       </h1>
                     </AnimateOnScroll>

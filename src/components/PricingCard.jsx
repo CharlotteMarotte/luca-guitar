@@ -20,14 +20,14 @@ const PricingCard = ({ pricingPlan }) => {
           }
         )}
       >
-        <h3 className='text-3xl font-heading text-sambuca mb-4'>{pricingPlan.heading}</h3>
+        <h3 className='text-3xl  text-sambuca mb-4'>{pricingPlan.heading}</h3>
 
         <div className='flex flex-col justify-between flex-grow'>
-          <p className='font-body sm:text-lg text-sambuca mb-4'>{pricingPlan.description}</p>
+          <p className=' sm:text-lg text-sambuca mb-4'>{pricingPlan.description}</p>
 
           <div className='flex justify-center items-baseline my-4'>
-            <span className='mr-2 text-4xl font-heading'>{defaultOption.price}</span>
-            <span className='font-body'>/ {defaultOption.duration}</span>
+            <span className='mr-2 text-4xl '>{defaultOption.price}</span>
+            <span>/ {defaultOption.duration}</span>
           </div>
 
           {pricingPlan.benefits && pricingPlan.benefits.length > 0 && (

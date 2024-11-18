@@ -37,7 +37,7 @@ const Pricing = () => {
               <div
                 className={"text-center mx-auto max-w-screen-md mb-8 lg:mb-12"}
               >
-                <p className={"mb-5 font-body text-white sm:text-xl"}>
+                <p className={"mb-5 text-white sm:text-xl"}>
                   Der Vertrag kann{" "}
                   <a
                     href={Contract}

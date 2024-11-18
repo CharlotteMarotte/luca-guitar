@@ -20,7 +20,7 @@ const ToggleButton = ({ isChecked, onToggle, inactiveLabel, activeLabel }) => {
         )}
       />
 
-      <span className='ml-3 text-xl font-body text-white'>{isChecked ? activeLabel : inactiveLabel}</span>
+      <span className='ml-3 text-xl text-white'>{isChecked ? activeLabel : inactiveLabel}</span>
     </label>
   )
 }
