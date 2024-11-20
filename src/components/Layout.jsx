@@ -1,9 +1,9 @@
 import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { Navbar, Footer, ParallaxScroll } from '@components'
+import clsx from 'clsx'
+import { Navbar, Footer, ParallaxScroll, CookieConsentBanner } from '@components'
 import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages'
 import { guitarStock } from '@assets'
-import clsx from 'clsx'
 
 const Wrapper = ({ children }) => {
   const location = useLocation()
@@ -52,6 +52,7 @@ const Layout = ({ children }) => {
         )}
         <Footer />
       </div>
+      <CookieConsentBanner />
     </Wrapper>
   )
 }

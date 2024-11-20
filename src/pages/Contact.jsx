@@ -1,11 +1,19 @@
 import { useState } from "react";
-import { ContactForm, PageScaffold, AnimateOnScroll } from "@components";
+import { useCookieConsent } from "@context";
+import {
+  ContactForm,
+  PageScaffold,
+  AnimateOnScroll,
+  CookieConsentPlaceholder,
+} from "@components";
 import { SocialIcon } from "react-social-icons";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config.js";
 import clsx from "clsx";
 
 const Contact = () => {
+  const { cookieConsentGiven } = useCookieConsent(); // Get cookie consent status
+
   const [responseMessage, setResponseMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -21,7 +29,8 @@ const Contact = () => {
     setIsSubmitted(true);
     setIsError(false);
     setTimeout(() => {
-      setIsSubmitted(false), setResponseMessage("");
+      setIsSubmitted(false);
+      setResponseMessage("");
     }, 10000);
   };
 
@@ -47,10 +56,10 @@ const Contact = () => {
       <section id="contact">
         <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 text-cafeNoir">
           <div className="flex flex-col justify-center text-center md:text-left bg-diSerria p-6 rounded-3xl">
-            <h2 className="text-3xl md:text-4xl  mb-4">
+            <h2 className="text-3xl md:text-4xl mb-4">
               Interesse geweckt? Lass uns in Kontakt treten!
             </h2>
-            <p className="text-lg md:text-xl mb-6 ">
+            <p className="text-lg md:text-xl mb-6">
               Möchtest du mehr erfahren oder eine Probestunde buchen? Fülle das
               Formular aus, um mit mir in Kontakt zu treten!
             </p>
@@ -58,7 +67,7 @@ const Contact = () => {
             {responseMessage && (
               <div
                 className={clsx(
-                  " text-lg p-6 rounded-3xl mb-4 w-full max-w-md mx-auto md:mx-0 border-2",
+                  "text-lg p-6 rounded-3xl mb-4 w-full max-w-md mx-auto md:mx-0 border-2",
                   {
                     "text-white bg-redWood": isError,
                     "text-spicyMustard bg-sand": !isError,
@@ -77,84 +86,87 @@ const Contact = () => {
             )}
           </div>
 
-          <div className="flex flex-col justify-center items-center h-full">
-            <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden shadow-lg mb-6">
-              <iframe
-                title="Google Maps"
-                src="https://www.google.com/maps/embed?pb=..."
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                aria-hidden="false"
-                tabIndex="0"
-              />
-            </div>
-
-            <AnimateOnScroll>
-              <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
-                <SocialIcon
-                  url="https://whatsapp.com"
-                  href="https://wa.me/2348100000000"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  bgColor={sandHex}
-                  fgColor={paarlHex}
-                  label="Whatsapp Kontakt"
-                  style={{
-                    width: "70px",
-                    height: "70px",
-                  }}
-                  className="rounded-full hover:border-2 hover:border-white"
-                />
-
-                <SocialIcon
-                  url="https://telegram.org"
-                  href="https://t.me/lucademi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  bgColor={sandHex}
-                  fgColor={paarlHex}
-                  label="Telegram Kontakt"
-                  style={{
-                    width: "70px",
-                    height: "70px",
-                  }}
-                  className="rounded-full hover:border-2 hover:border-white"
-                />
-
-                <SocialIcon
-                  url="https://www.instagram.com/"
-                  href="https://www.instagram.com/luca_de_michieli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  bgColor={sandHex}
-                  fgColor={paarlHex}
-                  label="Mein Instagram Account"
-                  style={{
-                    width: "70px",
-                    height: "70px",
-                  }}
-                  className="rounded-full hover:border-2 hover:border-white"
-                />
-
-                <SocialIcon
-                  url="https://www.soundcloud.com"
-                  href="https://soundcloud.com/lucademichieliguitar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  bgColor={sandHex}
-                  fgColor={paarlHex}
-                  label="Mein Soundcloud Account"
-                  style={{
-                    width: "70px",
-                    height: "70px",
-                  }}
-                  className="rounded-full hover:border-2 hover:border-white"
+          {cookieConsentGiven ? (
+            <div className="flex flex-col justify-center items-center h-full">
+              <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden shadow-lg mb-6">
+                <iframe
+                  title="Google Maps"
+                  src="https://www.google.com/maps/embed?pb=..."
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  aria-hidden="false"
+                  tabIndex="0"
                 />
               </div>
-            </AnimateOnScroll>
-          </div>
+              <AnimateOnScroll>
+                <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
+                  <SocialIcon
+                    url="https://whatsapp.com"
+                    href="https://wa.me/2348100000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    bgColor={sandHex}
+                    fgColor={paarlHex}
+                    label="Whatsapp Kontakt"
+                    style={{
+                      width: "70px",
+                      height: "70px",
+                    }}
+                    className="rounded-full hover:border-2 hover:border-white"
+                  />
+
+                  <SocialIcon
+                    url="https://telegram.org"
+                    href="https://t.me/lucademi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    bgColor={sandHex}
+                    fgColor={paarlHex}
+                    label="Telegram Kontakt"
+                    style={{
+                      width: "70px",
+                      height: "70px",
+                    }}
+                    className="rounded-full hover:border-2 hover:border-white"
+                  />
+
+                  <SocialIcon
+                    url="https://www.instagram.com/"
+                    href="https://www.instagram.com/luca_de_michieli"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    bgColor={sandHex}
+                    fgColor={paarlHex}
+                    label="Mein Instagram Account"
+                    style={{
+                      width: "70px",
+                      height: "70px",
+                    }}
+                    className="rounded-full hover:border-2 hover:border-white"
+                  />
+
+                  <SocialIcon
+                    url="https://www.soundcloud.com"
+                    href="https://soundcloud.com/lucademichieliguitar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    bgColor={sandHex}
+                    fgColor={paarlHex}
+                    label="Mein Soundcloud Account"
+                    style={{
+                      width: "70px",
+                      height: "70px",
+                    }}
+                    className="rounded-full hover:border-2 hover:border-white"
+                  />
+                </div>
+              </AnimateOnScroll>
+            </div>
+          ) : (
+            <CookieConsentPlaceholder />
+          )}
         </div>
       </section>
     </PageScaffold>

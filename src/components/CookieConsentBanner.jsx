@@ -1,12 +1,18 @@
+import { useCookieConsent } from '@context'
 import CookieConsent from 'react-cookie-consent'
 
 const CookieConsentBanner = () => {
+  const { bannerVisible, handleAccept, handleDecline } = useCookieConsent()
+
   return (
     <CookieConsent
+      visible={bannerVisible}
       location='bottom'
       buttonText='Akzeptieren'
       declineButtonText='Ablehnen'
       cookieName='userConsent'
+      onAccept={handleAccept}
+      onDecline={handleDecline}
       style={{
         background: '#333',
         zIndex: 9999,
