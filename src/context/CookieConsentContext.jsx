@@ -19,14 +19,14 @@ export const CookieConsentProvider = ({ children }) => {
   const [bannerVisibility, setBannerVisibility] = useState("show");
 
   useEffect(() => {
-    if (cookieConsentGiven !== null) {
-      if (cookieConsentGiven) {
-        setBannerVisibility("hidden");
-      } else {
-        setBannerVisibility("show");
-      }
+    const consentExists = Cookies.get("cookieInteraction") === "true";
+    if (consentExists) {
+      setBannerVisibility("hidden");
+      setCookieConsentGiven(true);
+    } else {
+      setBannerVisibility("show");
     }
-  }, [cookieConsentGiven]);
+  }, []);
 
   const updateCookies = () => {
     Cookies.set("analyticsCookie", cookieCategories.analytics.toString(), {
@@ -44,6 +44,7 @@ export const CookieConsentProvider = ({ children }) => {
   const handleConsentChange = (consent) => {
     setCookieConsentGiven(consent);
     updateCookies();
+    setBannerVisibility("hidden");
   };
 
   const handleCategoryChange = (category, isAccepted) => {
@@ -77,6 +78,21 @@ export const CookieConsentProvider = ({ children }) => {
     handleConsentChange(false);
   };
 
+  const handleReset = () => {
+    Cookies.remove("analyticsCookie");
+    Cookies.remove("marketingCookie");
+    Cookies.remove("functionalCookie");
+    Cookies.remove("cookieInteraction");
+    setBannerVisibility("show");
+    setCookieConsentGiven(null);
+    setCookieCategories({
+      marketing: false,
+      analytics: false,
+      functional: false,
+      necessary: true,
+    });
+  };
+
   return (
     <CookieConsentContext.Provider
       value={{
@@ -88,6 +104,7 @@ export const CookieConsentProvider = ({ children }) => {
         handleSavePreferences,
         handleAcceptAll,
         handleDecline,
+        handleReset,
       }}
     >
       {children}
