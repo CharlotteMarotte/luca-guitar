@@ -1,8 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import {
-  getCookieConsentValue,
-  resetCookieConsentValue,
-} from "react-cookie-consent";
+import { Cookies } from "react-cookie-consent";
 
 const CookieConsentContext = createContext();
 
@@ -11,47 +8,86 @@ export const useCookieConsent = () => {
 };
 
 export const CookieConsentProvider = ({ children }) => {
-  const [cookieConsentGiven, setCookieConsentGiven] = useState(
-    getCookieConsentValue("userConsent")
-  );
+  const [cookieCategories, setCookieCategories] = useState({
+    marketing: false,
+    analytics: false,
+    functional: false,
+    necessary: true,
+  });
+
+  const [cookieConsentGiven, setCookieConsentGiven] = useState(null);
+  const [bannerVisibility, setBannerVisibility] = useState("show");
 
   useEffect(() => {
-    if (cookieConsentGiven) {
-      setBannerVisible("hidden");
+    if (cookieConsentGiven !== null) {
+      if (cookieConsentGiven) {
+        setBannerVisibility("hidden");
+      } else {
+        setBannerVisibility("show");
+      }
     }
   }, [cookieConsentGiven]);
 
-  const [bannerVisible, setBannerVisible] = useState("byCookieValue");
+  const updateCookies = () => {
+    Cookies.set("analyticsCookie", cookieCategories.analytics.toString(), {
+      expires: 365,
+    });
+    Cookies.set("marketingCookie", cookieCategories.marketing.toString(), {
+      expires: 365,
+    });
+    Cookies.set("functionalCookie", cookieCategories.functional.toString(), {
+      expires: 365,
+    });
+    Cookies.set("cookieInteraction", "true", { expires: 365 });
+  };
 
-  const hideBanner = () => {
-    setBannerVisible("hidden");
+  const handleConsentChange = (consent) => {
+    setCookieConsentGiven(consent);
+    updateCookies();
+  };
+
+  const handleCategoryChange = (category, isAccepted) => {
+    setCookieCategories((prevState) => ({
+      ...prevState,
+      [category]: isAccepted,
+    }));
+  };
+
+  const handleSavePreferences = () => {
+    handleConsentChange(true);
+  };
+
+  const handleAcceptAll = () => {
+    setCookieCategories({
+      marketing: true,
+      analytics: true,
+      functional: true,
+      necessary: true,
+    });
+    handleConsentChange(true);
   };
 
   const handleDecline = () => {
-    setCookieConsentGiven(false);
-    hideBanner();
-  };
-
-  const handleAccept = () => {
-    setCookieConsentGiven(true);
-    hideBanner();
-  };
-
-  const handleReset = () => {
-    resetCookieConsentValue();
-    setBannerVisible("show");
-    console.log("got here");
+    setCookieCategories({
+      marketing: false,
+      analytics: false,
+      functional: false,
+      necessary: true,
+    });
+    handleConsentChange(false);
   };
 
   return (
     <CookieConsentContext.Provider
       value={{
         cookieConsentGiven,
-        bannerVisible,
-        hideBanner,
-        handleAccept,
+        bannerVisibility,
+        cookieCategories,
+        handleConsentChange,
+        handleCategoryChange,
+        handleSavePreferences,
+        handleAcceptAll,
         handleDecline,
-        handleReset,
       }}
     >
       {children}

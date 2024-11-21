@@ -12,7 +12,7 @@ import tailwindConfig from "../../tailwind.config.js";
 import clsx from "clsx";
 
 const Contact = () => {
-  const { cookieConsentGiven } = useCookieConsent(); // Get cookie consent status
+  const { cookieConsentGiven } = useCookieConsent();
 
   const [responseMessage, setResponseMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
