@@ -1,4 +1,3 @@
-import React, { useRef } from 'react'
 import CookieConsent from 'react-cookie-consent'
 import { PrimaryButton } from '@components'
 import { useCookieConsent } from '@context'
@@ -8,8 +7,6 @@ import tailwindConfig from '../../tailwind.config.js'
 const CookieConsentBanner = () => {
   const { bannerVisibility, cookieCategories, handleCategoryChange, handleSavePreferences, handleAcceptAll, handleDecline } =
     useCookieConsent()
-
-  const contentRef = useRef(null)
 
   const fullConfig = resolveConfig(tailwindConfig)
   const jannaHex = fullConfig.theme.colors.janna
@@ -37,8 +34,8 @@ const CookieConsentBanner = () => {
       buttonStyle={{ display: 'none' }}
       visible={bannerVisibility}
     >
-      <div ref={contentRef}>
-        <div className='cookie-text px-8'>
+      <div>
+        <div className='px-8'>
           <h3 className='text-xl pb-3'>Datenschutz-Präferenz</h3>
           <p>
             Diese Website verwendet Cookies von Drittanbietern, um personalisierte Inhalte und Funktionen, wie z.B. eingebettete Videos und
@@ -47,8 +44,8 @@ const CookieConsentBanner = () => {
           </p>
         </div>
 
-        <div className='cookie-categories px-8 py-4 mx-auto flex flex-col md:flex-row md:space-x-6 sm:space-y-0 md:justify-center w-auto gap-2'>
-          <label className='cookie-category flex items-center space-x-2'>
+        <div className='px-8 py-4 mx-auto flex flex-col md:flex-row md:space-x-6 sm:space-y-0 md:justify-center w-auto gap-2'>
+          <label className='flex items-center space-x-2'>
             <input
               type='checkbox'
               checked={cookieCategories.functional}
@@ -58,7 +55,7 @@ const CookieConsentBanner = () => {
             <span>Funktionale</span>
           </label>
 
-          <label className='cookie-category flex items-center space-x-2'>
+          <label className='flex items-center space-x-2'>
             <input
               type='checkbox'
               checked={cookieCategories.analytics}
@@ -68,7 +65,7 @@ const CookieConsentBanner = () => {
             <span>Leistungs- und Performance</span>
           </label>
 
-          <label className='cookie-category flex items-center space-x-2'>
+          <label className='flex items-center space-x-2'>
             <input
               type='checkbox'
               checked={cookieCategories.marketing}
@@ -78,14 +75,14 @@ const CookieConsentBanner = () => {
             <span>Tracking- und Werbe</span>
           </label>
 
-          <label className='cookie-category flex items-center space-x-2'>
+          <label className='flex items-center space-x-2'>
             <input type='checkbox' checked disabled className='form-checkbox h-5 w-5 border-2 cursor-not-allowed' />
             <span>Essenziell*</span>
           </label>
         </div>
 
-        <div className='button-container w-full max-w-4xl mx-auto px-8 flex flex-col sm:flex-row sm:space-y-4 sm:gap-4 justify-center'>
-          <PrimaryButton onClick={handleDecline} className='w-full sm:w-auto sm:py-2'>
+        <div className='w-full max-w-4xl mx-auto px-8 flex flex-col sm:flex-row gap-2 justify-center'>
+          <PrimaryButton onClick={handleDecline} className='w-full sm:w-auto'>
             Alle Ablehnen
           </PrimaryButton>
           <PrimaryButton onClick={handleSavePreferences} className='w-full sm:w-auto'>
@@ -96,7 +93,7 @@ const CookieConsentBanner = () => {
           </PrimaryButton>
         </div>
 
-        <div className='more-info pt-4'>
+        <div className='pt-4'>
           <a href='/privacy' className='text-copper hover:text-sand'>
             Mehr erfahren
           </a>
