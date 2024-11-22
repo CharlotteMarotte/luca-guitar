@@ -44,7 +44,7 @@ const CookieConsentBanner = () => {
           </p>
         </div>
 
-        <div className='px-8 py-4 mx-auto flex flex-col md:flex-row md:space-x-6 sm:space-y-0 md:justify-center w-auto gap-2'>
+        <div className='px-8 py-4 mx-auto flex flex-col md:flex-row md:space-x-6 sm:space-y-0 md:justify-center w- gap-2'>
           <label className='flex items-center space-x-2'>
             <input
               type='checkbox'
@@ -52,7 +52,7 @@ const CookieConsentBanner = () => {
               onChange={(e) => handleCategoryChange('functional', e.target.checked)}
               className='accent-paarl form-checkbox h-5 w-5 border-radius-3xl border-2'
             />
-            <span>Funktionale</span>
+            <span>Funktional</span>
           </label>
 
           <label className='flex items-center space-x-2'>
@@ -62,7 +62,7 @@ const CookieConsentBanner = () => {
               onChange={(e) => handleCategoryChange('analytics', e.target.checked)}
               className='accent-paarl form-checkbox h-5 w-5 border-radius-3xl border-2'
             />
-            <span>Leistungs- und Performance</span>
+            <span>Leistung- und Performance</span>
           </label>
 
           <label className='flex items-center space-x-2'>
@@ -72,7 +72,7 @@ const CookieConsentBanner = () => {
               onChange={(e) => handleCategoryChange('marketing', e.target.checked)}
               className='accent-paarl form-checkbox h-5 w-5 border-radius-3xl border-2'
             />
-            <span>Tracking- und Werbe</span>
+            <span>Tracking- und Werbung</span>
           </label>
 
           <label className='flex items-center space-x-2'>
