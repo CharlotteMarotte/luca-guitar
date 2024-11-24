@@ -2,7 +2,7 @@ import { useCookieConsent } from '@context'
 import { PrimaryButton } from '@components'
 
 const CookieConsentPlaceholder = () => {
-  const { handleReset, bannerVisibility } = useCookieConsent()
+  const { handleReset, bannerVisible } = useCookieConsent()
 
   return (
     <div>
@@ -11,11 +11,9 @@ const CookieConsentPlaceholder = () => {
         Diese Website verwendet Cookies von Drittanbietern, um personalisierte Inhalte und Funktionen, wie z.B. eingebettete Videos und
         Playlists, bereitzustellen. Ohne deine Zustimmung können diese Inhalte nicht angezeigt werden.
       </p>
-      {bannerVisibility === 'hidden' ? (
-        <PrimaryButton onClick={handleReset}>Cookies aktivieren</PrimaryButton>
-      ) : (
-        <p className='md:text-lg text-base mb-6'>Stimme der Verwendung von Cookies im Banner unten zu, um die Inhalte anzuzeigen.</p>
-      )}
+      <PrimaryButton onClick={handleReset}>
+        {bannerVisible ? 'Stimme der Verwendung von Cookies im Banner unten zu, um die Inhalte anzuzeigen.' : 'Cookies aktivieren'}
+      </PrimaryButton>
     </div>
   )
 }

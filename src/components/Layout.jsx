@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { Navbar, Footer, ParallaxScroll, CookieConsentBanner } from '@components'
 import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages'
 import { guitarStock } from '@assets'
+import { useCookieConsent } from '@context'
 
 const Wrapper = ({ children }) => {
   const location = useLocation()
@@ -18,6 +19,8 @@ const Wrapper = ({ children }) => {
 const Layout = ({ children }) => {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+
+  const { bannerVisible } = useCookieConsent()
 
   return (
     <Wrapper>
@@ -52,7 +55,7 @@ const Layout = ({ children }) => {
         )}
         <Footer />
       </div>
-      <CookieConsentBanner />
+      {bannerVisible && <CookieConsentBanner />}
     </Wrapper>
   )
 }
