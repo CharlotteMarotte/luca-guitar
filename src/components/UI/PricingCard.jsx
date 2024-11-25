@@ -1,6 +1,6 @@
+import clsx from 'clsx'
 import PricingCardItem from './PricingCardItem'
 import PrimaryButton from './PrimaryButton'
-import clsx from 'clsx'
 
 const PricingCard = ({ pricingPlan }) => {
   const defaultOption = pricingPlan.priceOptions[0] || {}

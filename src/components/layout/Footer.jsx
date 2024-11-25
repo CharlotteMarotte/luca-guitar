@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { ShapeDivider } from '@components'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../../tailwind.config.js'
+import tailwindConfig from '../../../tailwind.config.js'
+import { ShapeDivider } from '@components'
 
 const Footer = () => {
   const fullConfig = resolveConfig(tailwindConfig)

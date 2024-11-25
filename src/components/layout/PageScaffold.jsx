@@ -1,5 +1,5 @@
-import { AnimateOnScroll } from '@components'
 import clsx from 'clsx'
+import { AnimateOnScroll } from '@components'
 
 const PageScaffold = ({ title, bgColor = 'bg-white', className = '', children }) => {
   return (
