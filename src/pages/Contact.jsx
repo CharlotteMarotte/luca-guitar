@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { SocialIcon } from "react-social-icons";
+import clsx from "clsx";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config.js";
 import { useCookieConsent } from "@context";
 import {
   ContactForm,
@@ -6,13 +10,10 @@ import {
   AnimateOnScroll,
   CookieConsentPlaceholder,
 } from "@components";
-import { SocialIcon } from "react-social-icons";
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config.js";
-import clsx from "clsx";
 
 const Contact = () => {
-  const { cookieConsentGiven } = useCookieConsent();
+  const { cookieCategoriesConsent } = useCookieConsent();
+  const { marketing, functional, analytics } = cookieCategoriesConsent;
 
   const [responseMessage, setResponseMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -86,8 +87,8 @@ const Contact = () => {
             )}
           </div>
 
-          {cookieConsentGiven ? (
-            <div className="flex flex-col justify-center items-center h-full">
+          <div className="flex flex-col justify-center items-center h-full">
+            {marketing && functional && analytics ? (
               <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden shadow-lg mb-6">
                 <iframe
                   title="Google Maps"
@@ -100,73 +101,73 @@ const Contact = () => {
                   tabIndex="0"
                 />
               </div>
-              <AnimateOnScroll>
-                <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
-                  <SocialIcon
-                    url="https://whatsapp.com"
-                    href="https://wa.me/2348100000000"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    bgColor={sandHex}
-                    fgColor={paarlHex}
-                    label="Whatsapp Kontakt"
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                    }}
-                    className="rounded-full hover:border-2 hover:border-white"
-                  />
+            ) : (
+              <CookieConsentPlaceholder buttonColor="paarl" />
+            )}
+            <AnimateOnScroll>
+              <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
+                <SocialIcon
+                  url="https://whatsapp.com"
+                  href="https://wa.me/2348100000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  bgColor={sandHex}
+                  fgColor={paarlHex}
+                  label="Whatsapp Kontakt"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                  }}
+                  className="rounded-full hover:border-2 hover:border-white"
+                />
 
-                  <SocialIcon
-                    url="https://telegram.org"
-                    href="https://t.me/lucademi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    bgColor={sandHex}
-                    fgColor={paarlHex}
-                    label="Telegram Kontakt"
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                    }}
-                    className="rounded-full hover:border-2 hover:border-white"
-                  />
+                <SocialIcon
+                  url="https://telegram.org"
+                  href="https://t.me/lucademi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  bgColor={sandHex}
+                  fgColor={paarlHex}
+                  label="Telegram Kontakt"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                  }}
+                  className="rounded-full hover:border-2 hover:border-white"
+                />
 
-                  <SocialIcon
-                    url="https://www.instagram.com/"
-                    href="https://www.instagram.com/luca_de_michieli"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    bgColor={sandHex}
-                    fgColor={paarlHex}
-                    label="Mein Instagram Account"
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                    }}
-                    className="rounded-full hover:border-2 hover:border-white"
-                  />
+                <SocialIcon
+                  url="https://www.instagram.com/"
+                  href="https://www.instagram.com/luca_de_michieli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  bgColor={sandHex}
+                  fgColor={paarlHex}
+                  label="Mein Instagram Account"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                  }}
+                  className="rounded-full hover:border-2 hover:border-white"
+                />
 
-                  <SocialIcon
-                    url="https://www.soundcloud.com"
-                    href="https://soundcloud.com/lucademichieliguitar"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    bgColor={sandHex}
-                    fgColor={paarlHex}
-                    label="Mein Soundcloud Account"
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                    }}
-                    className="rounded-full hover:border-2 hover:border-white"
-                  />
-                </div>
-              </AnimateOnScroll>
-            </div>
-          ) : (
-            <CookieConsentPlaceholder />
-          )}
+                <SocialIcon
+                  url="https://www.soundcloud.com"
+                  href="https://soundcloud.com/lucademichieliguitar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  bgColor={sandHex}
+                  fgColor={paarlHex}
+                  label="Mein Soundcloud Account"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                  }}
+                  className="rounded-full hover:border-2 hover:border-white"
+                />
+              </div>
+            </AnimateOnScroll>
+          </div>
         </div>
       </section>
     </PageScaffold>

@@ -1,108 +1,84 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import Cookies from "js-cookie";
 
+const COOKIE_EXPIRY_DAYS = 365;
 const CookieConsentContext = createContext();
 
-export const useCookieConsent = () => {
-  return useContext(CookieConsentContext);
-};
+export const useCookieConsent = () => useContext(CookieConsentContext);
 
 export const CookieConsentProvider = ({ children }) => {
-  const [cookieCategories, setCookieCategories] = useState({
+  const [cookieCategoriesConsent, setcookieCategoriesConsent] = useState({
     marketing: false,
     analytics: false,
     functional: false,
-    necessary: true, // "necessary" cookies are always true
   });
 
-  const [cookieConsentGiven, setCookieConsentGiven] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
 
-  // Check if the user already provided consent
   useEffect(() => {
     const consentStatus = Cookies.get("cookieInteraction");
     if (consentStatus === "true") {
-      setBannerVisible(false); // Hide the banner if consent was already given
-      setCookieConsentGiven(true); // Update the consent state
+      setBannerVisible(false);
     }
   }, []);
 
-  // Save cookies to browser
   const updateCookies = (categories) => {
-    Cookies.set("necessaryCookie", "true", { expires: 365 }); // "necessary" is always true
     Cookies.set("analyticsCookie", categories.analytics.toString(), {
-      expires: 365,
+      expires: COOKIE_EXPIRY_DAYS,
     });
     Cookies.set("marketingCookie", categories.marketing.toString(), {
-      expires: 365,
+      expires: COOKIE_EXPIRY_DAYS,
     });
     Cookies.set("functionalCookie", categories.functional.toString(), {
-      expires: 365,
+      expires: COOKIE_EXPIRY_DAYS,
     });
-    Cookies.set("cookieInteraction", "true", { expires: 365 });
+    Cookies.set("cookieInteraction", "true", { expires: COOKIE_EXPIRY_DAYS });
   };
 
-  // Save preferences and close the banner
+  const updateAndSet = (updatedCategories) => {
+    setcookieCategoriesConsent(updatedCategories);
+    updateCookies(updatedCategories);
+    setBannerVisible(false);
+  };
+
   const handleSavePreferences = () => {
-    updateCookies(cookieCategories); // Update cookies based on the current state
-    setBannerVisible(false); // Hide the banner after saving preferences
-    setCookieConsentGiven(true);
+    updateCookies(cookieCategoriesConsent);
+    setBannerVisible(false);
   };
 
-  // Accept all cookies and close the banner
   const handleAcceptAll = () => {
-    // Set all cookies to true for "Accept All" action
-    const updatedCategories = {
-      marketing: true,
-      analytics: true,
-      functional: true,
-      necessary: true, // "necessary" stays true
-    };
-
-    // Update the state and immediately update the cookies
-    setCookieCategories(updatedCategories); // Update state
-    updateCookies(updatedCategories); // Set cookies based on the updated state
-    setBannerVisible(false); // Hide the banner
-    setCookieConsentGiven(true);
+    updateAndSet({ marketing: true, analytics: true, functional: true }, true);
   };
 
-  // Decline all non-essential cookies and close the banner
   const handleDecline = () => {
-    const updatedCategories = {
-      marketing: false,
-      analytics: false,
-      functional: false,
-      necessary: true, // "necessary" stays true
-    };
-    setCookieCategories(updatedCategories); // Update state
-    updateCookies(updatedCategories); // Set cookies based on the updated state
-    setBannerVisible(false); // Hide the banner
-    setCookieConsentGiven(false);
+    updateAndSet(
+      {
+        marketing: false,
+        analytics: false,
+        functional: false,
+      },
+      true
+    );
   };
 
-  // Reset cookies and state to initial values
   const handleReset = () => {
-    // Remove all cookies
-    Cookies.remove("necessaryCookie");
     Cookies.remove("analyticsCookie");
     Cookies.remove("marketingCookie");
     Cookies.remove("functionalCookie");
     Cookies.remove("cookieInteraction");
-
-    // Reset cookie categories and banner visibility
-    setCookieCategories({
-      marketing: false,
-      analytics: false,
-      functional: false,
-      necessary: true, // "necessary" stays true
-    });
-    setBannerVisible(true); // Show the banner again
-    setCookieConsentGiven(false); // Reset consent state
+    updateAndSet(
+      {
+        marketing: false,
+        analytics: false,
+        functional: false,
+      },
+      false
+    );
+    setBannerVisible(true);
   };
 
-  // Change individual cookie category
   const handleCategoryChange = (category, isAccepted) => {
-    setCookieCategories((prevState) => ({
+    setcookieCategoriesConsent((prevState) => ({
       ...prevState,
       [category]: isAccepted,
     }));
@@ -111,9 +87,8 @@ export const CookieConsentProvider = ({ children }) => {
   return (
     <CookieConsentContext.Provider
       value={{
-        cookieConsentGiven,
         bannerVisible,
-        cookieCategories,
+        cookieCategoriesConsent,
         handleSavePreferences,
         handleAcceptAll,
         handleDecline,

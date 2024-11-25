@@ -1,14 +1,15 @@
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config.js";
 import {
   ShapeDivider,
   PageScaffold,
   CookieConsentPlaceholder,
 } from "@components";
 import { useCookieConsent } from "@context";
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config.js";
 
 const Music = () => {
-  const { cookieCategories } = useCookieConsent();
+  const { cookieCategoriesConsent } = useCookieConsent();
+  const { marketing, functional, analytics } = cookieCategoriesConsent;
 
   const fullConfig = resolveConfig(tailwindConfig);
   const paarlHex = fullConfig.theme.colors.paarl;
@@ -17,10 +18,7 @@ const Music = () => {
     <div>
       <PageScaffold title="Meine Musik" bgColor="bg-paarl">
         <section className="text-white min-h-screen flex flex-col items-center justify-center">
-          {cookieCategories.marketing &&
-          cookieCategories.functional &&
-          cookieCategories.analytics &&
-          cookieCategories.necessary ? (
+          {marketing && functional && analytics ? (
             <div className="py-12 md:pb-32 container flex flex-col lg:flex-row items-center justify-center px-8 md:px-20 gap-8 flex-grow">
               <div className="w-full lg:w-1/2 pb-6">
                 <div className="relative pb-[56.25%] w-full">
