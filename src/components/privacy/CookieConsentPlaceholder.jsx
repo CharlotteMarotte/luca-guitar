@@ -1,7 +1,7 @@
 import { useCookieConsent } from '@context'
 import { PrimaryButton } from '@components'
 
-const CookieConsentPlaceholder = ({ buttonColor }) => {
+const CookieConsentPlaceholder = ({ buttonColor, borderColor, buttonTextColor, hoverTextColor }) => {
   const { handleReset, bannerVisible } = useCookieConsent()
 
   const buttonText = bannerVisible ? 'Stimme der Verwendung von Cookies im Banner unten zu' : 'Cookies aktivieren'
@@ -15,7 +15,15 @@ const CookieConsentPlaceholder = ({ buttonColor }) => {
       </p>
 
       <div className='flex justify-center'>
-        <PrimaryButton backgroundColor={buttonColor} onClick={handleReset} hoverEffect={true} aria-label='Cookies akzeptieren'>
+        <PrimaryButton
+          backgroundColor={buttonColor}
+          borderColor={borderColor}
+          textColor={buttonTextColor}
+          hoverTextColor={hoverTextColor ? hoverTextColor : `hover:${buttonTextColor}`}
+          onClick={handleReset}
+          hoverEffect={true}
+          aria-label='Cookies akzeptieren'
+        >
           {buttonText}
         </PrimaryButton>
       </div>

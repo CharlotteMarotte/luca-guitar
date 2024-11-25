@@ -31,16 +31,16 @@ const Navbar = () => {
   }
 
   return (
-    <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-white bg-paarl relative z-10'>
+    <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-textLight bg-primary relative z-10'>
       <section className='relative mx-auto w-full'>
-        <nav className='flex justify-between items-center text-white w-full'>
+        <nav className='flex justify-between items-center text-textLight w-full'>
           <a
             href='#home'
             onClick={(e) => {
               e.preventDefault()
               handleLogoClick()
             }}
-            className='text-2xl italic  font-sm mr-8 pr-8 lg:border-r lg:border-white hover:text-amber-500'
+            className='text-2xl italic  font-sm mr-8 pr-8 lg:border-r lg:border-textLight hover:text-amber-500'
           >
             Luca de Michieli
           </a>
@@ -61,11 +61,11 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile menu */}
-        <div className={clsx('lg:hidden bg-paarl transition-all duration-300 w-full py-4', isMobileMenuOpen ? 'block' : 'hidden')}>
+        <div className={clsx('lg:hidden bg-primary transition-all duration-300 w-full py-4', isMobileMenuOpen ? 'block' : 'hidden')}>
           <ul className='flex flex-col space-y-4 '>
             {menuItems.map(({ name, href }) => (
               <li key={name}>
-                <a className='text-white hover:text-gray-200 hover:bg-white hover:bg-opacity-20 rounded-lg block p-2' href={href}>
+                <a className='text-textLight hover:text-gray-200 hover:bg-textLight hover:bg-opacity-20 rounded-lg block p-2' href={href}>
                   {name}
                 </a>
               </li>

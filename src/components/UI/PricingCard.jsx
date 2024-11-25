@@ -13,17 +13,17 @@ const PricingCard = ({ pricingPlan }) => {
     <div className='p-4 max-w-sm'>
       <div
         className={clsx(
-          'flex flex-col p-6 mx-auto text-center text-sambuca rounded-3xl shadow h-auto transition-transform duration-300 ease-in-out md:hover:translate-y-[-3rem]',
+          'flex flex-col p-6 mx-auto text-center text-textDark rounded-3xl shadow h-auto transition-transform duration-300 ease-in-out md:hover:translate-y-[-3rem]',
           {
-            'bg-sand border-4 border-white sm:transform sm:translate-y-[-15px] sm:z-10': pricingPlan.isHighlighted,
-            'bg-sand border-4 border-spicyMustard': !pricingPlan.isHighlighted
+            'bg-neutralMedium border-4 border-textLight sm:transform sm:translate-y-[-15px] sm:z-10': pricingPlan.isHighlighted,
+            'bg-neutralMedium border-4 border-neutralLight': !pricingPlan.isHighlighted
           }
         )}
       >
-        <h3 className='text-3xl  text-sambuca mb-4'>{pricingPlan.heading}</h3>
+        <h3 className='text-3xl  text-textDark mb-4'>{pricingPlan.heading}</h3>
 
         <div className='flex flex-col justify-between flex-grow'>
-          <p className=' sm:text-lg text-sambuca mb-4'>{pricingPlan.description}</p>
+          <p className=' sm:text-lg text-textDark mb-4'>{pricingPlan.description}</p>
 
           <div className='flex justify-center items-baseline my-4'>
             <span className='mr-2 text-4xl '>{defaultOption.price}</span>
@@ -39,7 +39,7 @@ const PricingCard = ({ pricingPlan }) => {
           )}
 
           <div className='inline-flex items-center pt-4 justify-center'>
-            <PrimaryButton className='border-0'>
+            <PrimaryButton className='border-0' borderColor='border-textDark' textColor='dark' hoverTextColor='hover:text-dark'>
               <a className='px-10 py-4 text-2xl md:text-xl' href='mailto:lucademichieli@posteo.net'>
                 Anmelden
               </a>

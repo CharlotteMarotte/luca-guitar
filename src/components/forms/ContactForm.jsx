@@ -95,11 +95,11 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           {...register('name')}
           onBlur={() => trigger('name')}
           className={clsx(
-            'bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0',
-            errors.name && 'border-2 border-metallicCopper'
+            'bg-neutralLight text-textDark p-3 rounded-3xl pl-4 focus:border-textDark focus:border-2 focus:outline-none focus:ring-0',
+            errors.name && 'border-2 border-accent'
           )}
         />
-        {errors.name && <span className='text-metallicCopper'>{errors.name.message}</span>}
+        {errors.name && <span className='text-accent'>{errors.name.message}</span>}
       </div>
 
       <div className='flex flex-col'>
@@ -111,11 +111,11 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           {...register('email')}
           onBlur={() => trigger('email')}
           className={clsx(
-            'bg-janna text-black p-3 rounded-3xl pl-4 focus:border-cafeNoir focus:border-2 focus:outline-none focus:ring-0',
-            errors.email && 'border-2 border-metallicCopper'
+            'bg-neutralLight text-textDark p-3 rounded-3xl pl-4 focus:border-textDark focus:border-2 focus:outline-none focus:ring-0',
+            errors.email && 'border-2 border-accent'
           )}
         />
-        {errors.email && <span className='text-metallicCopper'>{errors.email.message}</span>}
+        {errors.email && <span className='text-accent'>{errors.email.message}</span>}
       </div>
 
       <div className='flex flex-col'>
@@ -127,22 +127,28 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           onBlur={() => trigger('message')}
           rows='4'
           className={clsx(
-            'bg-janna text-black p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-cafeNoir focus:border-2',
-            errors.message && 'border-2 border-metallicCopper'
+            'bg-neutralLight text-textDark p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-textDark focus:border-2',
+            errors.message && 'border-2 border-accent'
           )}
         ></textarea>
-        {errors.message && <span className='text-metallicCopper'>{errors.message.message}</span>}
+        {errors.message && <span className='text-accent'>{errors.message.message}</span>}
       </div>
 
       <div className='flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 mt-4 justify-between items-center'>
         <MathValidation onValidationError={handleMathValidationError} onValidationSuccess={handleMathValidationSuccess} />
-        <PrimaryButton backgroundColor='spicyMustard' disabled={sending}>
+        <PrimaryButton
+          backgroundColor='bg-secondary'
+          textColor='textDark'
+          border='border-textDark'
+          hoverTextColor='hover:text-dark'
+          disabled={sending}
+        >
           {sending ? 'Sende...' : 'Nachricht senden'}
         </PrimaryButton>
       </div>
 
       {errorMessage && (
-        <p className='bg-metallicCopper border-white border-2 text-white text-lg p-3 rounded-3xl my-4 w-full max-w-md mx-auto text-center'>
+        <p className='bg-accent border-textLight border-2 text-textLight text-lg p-3 rounded-3xl my-4 w-full max-w-md mx-auto text-center'>
           {errorMessage}
         </p>
       )}

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-const ShapeDivider = ({ type = 'default', fillColor = '#b87333', backgroundColor = 'white', className = '' }) => {
+const ShapeDivider = ({ type = 'default', fillColor = '#b87333', backgroundColor = 'textLight', className = '' }) => {
   const shapePaths = {
     opaqueWavesBottom: [
       {

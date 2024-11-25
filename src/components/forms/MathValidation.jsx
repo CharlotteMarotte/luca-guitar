@@ -44,7 +44,7 @@ const MathValidation = ({ onValidationError, onValidationSuccess }) => {
           type='number'
           value={userAnswer}
           onChange={handleInputChange}
-          className='bg-white text-black p-3 rounded-3xl w-16 text-center text-lg remove-arrow'
+          className='bg-neutralLight text-textDark p-3 rounded-3xl w-16 text-center text-lg remove-arrow focus:outline-none focus:ring-0 focus:border-textDark focus:border-2'
         />
       </div>
     </div>

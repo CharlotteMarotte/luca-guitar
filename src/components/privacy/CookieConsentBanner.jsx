@@ -6,7 +6,7 @@ const CookieConsentBanner = () => {
 
   return (
     <section
-      className='bg-janna text-cafeNoir rounded-t-lg font-quicksand px-6 py-4 flex flex-col items-center text-center gap-4 fixed bottom-0 left-0 w-full max-w-full min-h-[unset] max-h-[calc(100vh-50px)] overflow-y-auto'
+      className='bg-neutralLight text-textDark rounded-t-lg font-quickneutralMedium px-6 py-4 flex flex-col items-center text-center gap-4 fixed bottom-0 left-0 w-full max-w-full min-h-[unset] max-h-[calc(100vh-50px)] overflow-y-auto'
       role='dialog'
       aria-labelledby='cookie-consent-heading'
       aria-describedby='cookie-consent-description'
@@ -29,7 +29,7 @@ const CookieConsentBanner = () => {
             id='functional-cookie'
             checked={cookieCategoriesConsent.functional}
             onChange={(e) => handleCategoryChange('functional', e.target.checked)}
-            className='accent-paarl h-5 w-5 rounded-xl border-2'
+            className='secondary-primary h-5 w-5 rounded-xl border-2'
           />
           <span>Funktional</span>
         </label>
@@ -40,7 +40,7 @@ const CookieConsentBanner = () => {
             id='analytics-cookie'
             checked={cookieCategoriesConsent.analytics}
             onChange={(e) => handleCategoryChange('analytics', e.target.checked)}
-            className='accent-paarl h-5 w-5 rounded-xl border-2'
+            className='secondary-primary h-5 w-5 rounded-xl border-2'
           />
           <span>Performance</span>
         </label>
@@ -51,7 +51,7 @@ const CookieConsentBanner = () => {
             id='marketing-cookie'
             checked={cookieCategoriesConsent.marketing}
             onChange={(e) => handleCategoryChange('marketing', e.target.checked)}
-            className='accent-paarl h-5 w-5 rounded-xl border-2'
+            className='secondary-primary h-5 w-5 rounded-xl border-2'
           />
           <span>Tracking- und Werbung</span>
         </label>
@@ -61,7 +61,7 @@ const CookieConsentBanner = () => {
             type='checkbox'
             checked
             readOnly
-            className=' h-5 w-5 border-2 cursor-not-allowed accent-janna rounded-x'
+            className=' h-5 w-5 border-2 cursor-not-allowed secondary-neutralLight rounded-x'
             aria-label='Necessary cookies (required)'
           />
           <span className='text-gray-500'>Essenziell*</span>
@@ -81,7 +81,7 @@ const CookieConsentBanner = () => {
       </div>
 
       <div className='pt-2'>
-        <a href='/privacy' className='text-copper hover:text-sand'>
+        <a href='/privacy' className='text-secondary hover:text-neutralMedium'>
           Mehr erfahren
         </a>
       </div>
