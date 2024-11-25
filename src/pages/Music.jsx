@@ -39,7 +39,7 @@ const Music = () => {
   return (
     <div>
       <PageScaffold title='Meine Musik' bgColor='bg-accent' textColor='text-textLight'>
-        <section className='text-textLight min-h-screen flex flex-col items-center justify-center'>
+        <section id='music' className='text-textLight min-h-screen flex flex-col items-center justify-center'>
           <p className='px-8 md:px-20 text-lg text-center md:text-justify'>
             Hier findest du eine Auswahl an Videos, die sowohl meine eigenen Kompositionen als auch einige Interpretationen bekannter Stücke
             zeigen. In den folgenden{' '}
