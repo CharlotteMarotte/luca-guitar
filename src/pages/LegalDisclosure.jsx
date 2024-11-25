@@ -12,7 +12,7 @@ const LegalDisclosure = () => {
               <p>Lepsiusstr. 6</p>
               <p>12163 Berlin</p>
 
-              <div className='mb-4'>
+              <div className='my-4'>
                 <span className='font-bold'>Vertreten durch:</span>
                 <p>Luca De Michieli</p>
               </div>

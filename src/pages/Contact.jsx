@@ -46,9 +46,9 @@ const Contact = () => {
       <section id='contact'>
         <div className='container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 text-textDark'>
           <div className='flex flex-col justify-center text-center md:text-left bg-secondaryLight p-6 rounded-3xl'>
-            <h2 className='text-3xl md:text-4xl mb-4'>Interesse geweckt? Lass uns in Kontakt treten!</h2>
+            <h2 className='text-3xl md:text-4xl mb-4'>Interesse geweckt? Melde dich gerne bei mir!</h2>
             <p className='text-lg md:text-xl mb-6'>
-              Möchtest du mehr erfahren oder eine Probestunde buchen? Fülle das Formular aus, um mit mir in Kontakt zu treten!
+              Möchtest du mehr erfahren oder eine Probestunde buchen? Fülle das Formular aus, um mich zu kontaktieren!
             </p>
 
             {responseMessage && (

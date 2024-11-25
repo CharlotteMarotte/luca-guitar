@@ -11,7 +11,7 @@ const About = () => {
               <h1 className='text-center md:text-left text-3xl sm:text-4xl md:text-5xl  mb-6'>Über mich</h1>
             </AnimateOnScroll>
             <AnimateOnScroll>
-              <p className=' text-lg text-center md:text-justify mb-6'>
+              <p className='text-lg text-center md:text-justify mb-6'>
                 Ciao, ich bin Luca, 32 Jahre alt, und spiele Gitarre seit 22 Jahren. Ursprünglich aus Berlin, wurde ich schon früh von
                 meinem Vater, der selbst Gitarre spielt, inspiriert. Als Kind habe ich klassischen Gitarrenunterricht genommen, später
                 verschiedene Stile wie Jazz und Flamenco ausprobiert und vieles auch autodidaktisch erlernt.
