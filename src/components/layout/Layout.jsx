@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
 
-  const { bannerVisible } = useCookieConsent()
+  const { bannerVisible, loading } = useCookieConsent()
 
   return (
     <Wrapper>
@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
         )}
         <Footer />
       </div>
-      {bannerVisible && <CookieConsentBanner />}
+      {!loading && bannerVisible && <CookieConsentBanner />}
     </Wrapper>
   )
 }
