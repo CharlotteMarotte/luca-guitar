@@ -32,6 +32,7 @@ export default {
         accent: '#703510',
         accentDark: '#673320',
         textLight: '#F5ECE0',
+        textMedium: '#C8AF85',
         textDark: '#372912',
         success: '#6E7D3E',
         error: '#a45a52'

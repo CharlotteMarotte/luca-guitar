@@ -11,14 +11,27 @@ const Music = () => {
   const accentHex = fullConfig.theme.colors.accent
 
   const renderSoundCloudEmbed = (trackUrl, title) => (
-    <iframe
-      className='w-full'
-      width='100%'
-      height='166'
-      allow='autoplay'
-      src={`https://w.soundcloud.com/player/?url=${trackUrl}&color=%239a5e1a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}
-      title={title}
-    ></iframe>
+    <>
+      <div className='block sm:hidden'>
+        <iframe
+          width='100%'
+          height='300'
+          allow='autoplay'
+          src={`https://w.soundcloud.com/player/?url=${trackUrl}&color=%239a5e1a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
+        ></iframe>
+      </div>
+
+      <div className='hidden sm:block'>
+        <iframe
+          className='w-full'
+          width='100%'
+          height='166'
+          allow='autoplay'
+          src={`https://w.soundcloud.com/player/?url=${trackUrl}&color=%239a5e1a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}
+          title={title}
+        ></iframe>
+      </div>
+    </>
   )
 
   const renderYouTubeEmbed = (src, title) => (
@@ -38,8 +51,8 @@ const Music = () => {
 
   return (
     <div>
-      <PageScaffold title='Meine Musik' bgColor='bg-accent' textColor='text-textLight'>
-        <section id='music' className='text-textLight min-h-screen flex flex-col items-center justify-center'>
+      <PageScaffold title='Meine Musik' bgColor='bg-accent' textColor='text-textMedium'>
+        <section id='music' className='text-textMedium min-h-screen flex flex-col items-center justify-center'>
           <p className='px-8 md:px-20 text-lg text-center md:text-justify'>
             Hier findest du eine Auswahl an Videos, die sowohl meine eigenen Kompositionen als auch einige Interpretationen bekannter Stücke
             zeigen. In den folgenden{' '}
