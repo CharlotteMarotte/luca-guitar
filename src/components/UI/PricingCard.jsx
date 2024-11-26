@@ -39,7 +39,16 @@ const PricingCard = ({ pricingPlan }) => {
           )}
 
           <div className='inline-flex items-center pt-4 justify-center'>
-            <PrimaryButton className='border-0' borderColor='border-textDark' textColor='dark' hoverTextColor='hover:text-dark'>
+            <PrimaryButton
+              className='border-0'
+              styleOptions={{
+                backgroundColor: 'bg-secondary',
+                borderColor: 'border-textDark',
+                textColor: 'text-dark',
+                hoverTextColor: 'hover:text-dark'
+              }}
+              aria-label='Button label'
+            >
               <a className='px-10 py-4 text-2xl md:text-xl' href='mailto:lucademichieli@posteo.net'>
                 Anmelden
               </a>

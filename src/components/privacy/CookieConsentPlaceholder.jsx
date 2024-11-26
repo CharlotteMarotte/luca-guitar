@@ -16,12 +16,13 @@ const CookieConsentPlaceholder = ({ buttonColor, borderColor, buttonTextColor, h
 
       <div className='flex justify-center'>
         <PrimaryButton
-          backgroundColor={buttonColor}
-          borderColor={borderColor}
-          textColor={buttonTextColor}
-          hoverTextColor={hoverTextColor ? hoverTextColor : `hover:${buttonTextColor}`}
+          styleOptions={{
+            backgroundColor: buttonColor,
+            borderColor: borderColor,
+            textColor: buttonTextColor,
+            hoverTextColor: hoverTextColor ? hoverTextColor : `hover:${buttonTextColor}`
+          }}
           onClick={handleReset}
-          hoverEffect={true}
           aria-label='Cookies akzeptieren'
         >
           {buttonText}

@@ -137,11 +137,13 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
       <div className='flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 mt-4 justify-between items-center'>
         <MathValidation onValidationError={handleMathValidationError} onValidationSuccess={handleMathValidationSuccess} />
         <PrimaryButton
-          backgroundColor='bg-secondary'
-          textColor='textDark'
-          border='border-textDark'
-          hoverTextColor='hover:text-dark'
           disabled={sending}
+          styleOptions={{
+            backgroundColor: 'bg-secondary',
+            textColor: 'text-dark',
+            borderColor: 'border-textDark',
+            hoverTextColor: 'hover:text-dark'
+          }}
         >
           {sending ? 'Sende...' : 'Nachricht senden'}
         </PrimaryButton>

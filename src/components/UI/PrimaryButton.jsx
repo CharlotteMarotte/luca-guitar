@@ -3,11 +3,14 @@ import clsx from 'clsx'
 const PrimaryButton = ({
   children,
   onClick,
-  backgroundColor = 'bg-secondary',
-  borderColor = 'border-textLight',
-  textColor = 'text-textLight',
-  hoverTextColor = 'hover:text-textDark',
-  disabled = false
+  styleOptions = {
+    backgroundColor: 'bg-secondary',
+    borderColor: 'border-textLight',
+    textColor: 'text-textLight',
+    hoverTextColor: 'hover:text-textDark'
+  },
+  disabled = false,
+  className = ''
 }) => {
   return (
     <button
@@ -15,11 +18,12 @@ const PrimaryButton = ({
       disabled={disabled}
       className={clsx(
         'px-6 py-3 border-solid border-2 rounded-3xl transition-colors duration-300',
-        backgroundColor,
-        textColor,
-        borderColor,
-        hoverTextColor,
+        styleOptions.backgroundColor,
+        styleOptions.textColor,
+        styleOptions.borderColor,
+        styleOptions.hoverTextColor,
         'hover:bg-transparent',
+        className,
         {
           'bg-gray-400 cursor-not-allowed': disabled
         }
