@@ -23,7 +23,7 @@ const Navbar = () => {
     { name: 'Über mich', href: '/#about' },
     { name: 'Gitarrenunterricht', href: '/#teaching' },
     { name: 'Preise', href: '/#pricing' },
-    { name: 'Hörproben', href: '/#music' },
+    { name: 'Hörprobe', href: '/#music' },
     { name: 'Kontakt', href: '/#contact' }
   ]
 
