@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const renderMenuItems = (item) => {
     return (
-      <MenuItem key={item.name} href={item.href}>
+      <MenuItem key={item.name} href={item.href} onMenuItemClick>
         {item.name}
       </MenuItem>
     )
@@ -27,10 +27,6 @@ const Navbar = () => {
     { name: 'Kontakt', href: '/#contact' }
   ]
 
-  const handleLogoClick = () => {
-    navigate('/')
-  }
-
   return (
     <div className='px-6 py-3 flex flex-wrap place-items-center lg:border-y lg:border-textLight bg-primary relative z-10'>
       <section className='relative mx-auto w-full'>
@@ -39,7 +35,7 @@ const Navbar = () => {
             href='#home'
             onClick={(e) => {
               e.preventDefault()
-              handleLogoClick()
+              navigate('/')
             }}
             className='group text-textLight transition-all duration-800 hover:text-white relative text-xl sm:text-2xl lg:text-3xl whitespace-nowrap'
           >
@@ -69,7 +65,13 @@ const Navbar = () => {
           <ul className='flex flex-col space-y-4'>
             {menuItems.map(({ name, href }) => (
               <li key={name}>
-                <a className='text-textLight hover:text-gray-200 hover:bg-textLight hover:bg-opacity-20 rounded-lg block p-2' href={href}>
+                <a
+                  onClick={(e) => {
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className='text-textLight hover:text-gray-200 hover:bg-textLight hover:bg-opacity-20 rounded-lg block p-2'
+                  href={href}
+                >
                   {name}
                 </a>
               </li>
