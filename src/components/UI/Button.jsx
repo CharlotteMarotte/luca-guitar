@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-const PrimaryButton = ({
+const Button = ({
   children,
   onClick,
   styleOptions = {
@@ -34,4 +34,4 @@ const PrimaryButton = ({
   )
 }
 
-export default PrimaryButton
+export default Button

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import PricingCardItem from './PricingCardItem'
-import PrimaryButton from './PrimaryButton'
+import Button from './Button'
 
 const PricingCard = ({ pricingPlan }) => {
   const defaultOption = pricingPlan.priceOptions[0] || {}
@@ -39,7 +39,7 @@ const PricingCard = ({ pricingPlan }) => {
           )}
 
           <div className='inline-flex items-center pt-4 justify-center'>
-            <PrimaryButton
+            <Button
               className='border-0'
               styleOptions={{
                 backgroundColor: 'bg-secondary',
@@ -52,7 +52,7 @@ const PricingCard = ({ pricingPlan }) => {
               <a className='px-10 py-4 text-2xl md:text-xl' href='mailto:lucademichieli@posteo.net'>
                 Anmelden
               </a>
-            </PrimaryButton>
+            </Button>
           </div>
         </div>
       </div>

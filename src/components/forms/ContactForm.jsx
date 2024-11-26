@@ -4,7 +4,7 @@ import { z } from 'zod'
 import clsx from 'clsx'
 import { zodResolver } from '@hookform/resolvers/zod'
 import emailjs from '@emailjs/browser'
-import { PrimaryButton } from '@components'
+import { Button } from '@components'
 import MathValidation from './MathValidation'
 
 const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
@@ -136,7 +136,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
 
       <div className='flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 mt-4 justify-between items-center'>
         <MathValidation onValidationError={handleMathValidationError} onValidationSuccess={handleMathValidationSuccess} />
-        <PrimaryButton
+        <Button
           disabled={sending}
           styleOptions={{
             backgroundColor: 'bg-secondary',
@@ -146,7 +146,7 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           }}
         >
           {sending ? 'Sende...' : 'Nachricht senden'}
-        </PrimaryButton>
+        </Button>
       </div>
 
       {errorMessage && (

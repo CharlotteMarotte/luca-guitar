@@ -1,6 +1,6 @@
 export { default as Layout } from './layout/Layout'
 export { default as PageScaffold } from './layout/PageScaffold'
-export { default as PrimaryButton } from './UI/PrimaryButton'
+export { default as Button } from './UI/Button'
 export { default as Navbar } from './layout/Navbar'
 export { default as ParallaxScroll } from './animations/ParallaxScroll'
 export { default as PricingCard } from './UI/PricingCard'

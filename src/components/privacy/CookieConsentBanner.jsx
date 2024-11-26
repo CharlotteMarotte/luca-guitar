@@ -1,4 +1,4 @@
-import { PrimaryButton } from '@components'
+import { Button } from '@components'
 import { useCookieConsent } from '@context'
 
 const CookieConsentBanner = () => {
@@ -69,15 +69,15 @@ const CookieConsentBanner = () => {
       </div>
 
       <div className='w-full max-w-4xl mx-auto px-8 flex flex-col sm:flex-row gap-2 justify-center'>
-        <PrimaryButton onClick={handleDecline} className='w-full sm:w-auto'>
+        <Button onClick={handleDecline} className='w-full sm:w-auto'>
           Nur essenzielle akzeptieren
-        </PrimaryButton>
-        <PrimaryButton onClick={handleSavePreferences} className='w-full sm:w-auto'>
+        </Button>
+        <Button onClick={handleSavePreferences} className='w-full sm:w-auto'>
           Einwilligung Speichern
-        </PrimaryButton>
-        <PrimaryButton onClick={handleAcceptAll} className='w-full sm:w-auto'>
+        </Button>
+        <Button onClick={handleAcceptAll} className='w-full sm:w-auto'>
           Alle Akzeptieren
-        </PrimaryButton>
+        </Button>
       </div>
 
       <div className='pt-2'>
