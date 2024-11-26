@@ -90,36 +90,6 @@ const Contact = () => {
             <AnimateOnScroll>
               <div className='flex flex-wrap justify-center items-center gap-4 mt-6'>
                 <SocialIcon
-                  url='https://whatsapp.com'
-                  href='https://wa.me/2348100000000'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  bgColor={neutralMediumHex}
-                  fgColor={accentHex}
-                  label='Whatsapp Kontakt'
-                  style={{
-                    width: '70px',
-                    height: '70px'
-                  }}
-                  className='rounded-full hover:border-2 hover:border-accent'
-                />
-
-                <SocialIcon
-                  url='https://telegram.org'
-                  href='https://t.me/lucademi'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  bgColor={neutralMediumHex}
-                  fgColor={accentHex}
-                  label='Telegram Kontakt'
-                  style={{
-                    width: '70px',
-                    height: '70px'
-                  }}
-                  className='rounded-full hover:border-2 hover:border-accent'
-                />
-
-                <SocialIcon
                   url='https://www.instagram.com/'
                   href='https://www.instagram.com/luca_de_michieli'
                   target='_blank'
@@ -142,6 +112,21 @@ const Contact = () => {
                   bgColor={neutralMediumHex}
                   fgColor={accentHex}
                   label='Mein Soundcloud Account'
+                  style={{
+                    width: '70px',
+                    height: '70px'
+                  }}
+                  className='rounded-full hover:border-2 hover:border-accent'
+                />
+
+                <SocialIcon
+                  url='https://youtube.com'
+                  href='https://www.youtube.com/@lucademichielimusic'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  bgColor={neutralMediumHex}
+                  fgColor={accentHex}
+                  label='Youtube Kanal'
                   style={{
                     width: '70px',
                     height: '70px'
