@@ -5,11 +5,11 @@ import { ShapeDivider } from '@components'
 
 const Footer = () => {
   const fullConfig = resolveConfig(tailwindConfig)
-  const secondaryHex = fullConfig.theme.colors.secondary
+  const primaryHex = fullConfig.theme.colors.primary
 
   return (
     <div className='bg-primary text-textLight'>
-      <ShapeDivider type='curveTop' fillColor={secondaryHex} backgroundColor='primary' />
+      <ShapeDivider type='curveTop' fillColor={primaryHex} backgroundColor='secondary' />
       <div className='pb-10 text-center '>
         <div className='container mx-auto px-4'>
           <p className='text-sm md:text-base'>&copy; 2024 Luca de Michieli</p>

@@ -45,7 +45,7 @@ const Teaching = () => {
           </div>
         </section>
       </PageScaffold>
-      <ShapeDivider type='customShapeBottom' fillColor={primaryHex} backgroundColor='secondary' />
+      <ShapeDivider type='shapeBottom' fillColor={primaryHex} backgroundColor='secondary' />
     </div>
   )
 }

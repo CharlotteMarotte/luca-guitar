@@ -11170,7 +11170,7 @@ const i5 = ({ children: e }) => {
             opacity: 1
           }
         ],
-        customShapeBottom: [
+        shapeBottom: [
           {
             d: 'M0,0V112.77C0,65.52,268.63,7.23,600,7.23S1200,65.52,1200,112.77V0Z',
             opacity: 1
@@ -19424,7 +19424,7 @@ const iv = () => {
           })
         }),
         x.jsx(rs, {
-          type: 'customShapeBottom',
+          type: 'shapeBottom',
           fillColor: t,
           backgroundColor: 'secondary'
         })

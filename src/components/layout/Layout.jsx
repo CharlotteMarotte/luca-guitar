@@ -1,7 +1,9 @@
 import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import clsx from 'clsx'
-import { Navbar, Footer, ParallaxScroll, CookieConsentBanner } from '@components'
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../../../tailwind.config.js'
+import { Navbar, Footer, ParallaxScroll, CookieConsentBanner, ShapeDivider } from '@components'
 import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages'
 import { guitarStock } from '@assets'
 import { useCookieConsent } from '@context'
@@ -22,6 +24,9 @@ const Layout = ({ children }) => {
 
   const { bannerVisible, loading } = useCookieConsent()
 
+  const fullConfig = resolveConfig(tailwindConfig)
+  const primaryHex = fullConfig.theme.colors.primary
+
   return (
     <Wrapper>
       <div>
@@ -40,7 +45,15 @@ const Layout = ({ children }) => {
             </header>
             <main>
               <About />
-              <ParallaxScroll imageUrl={guitarStock} />
+              <ParallaxScroll imageUrl={guitarStock}>
+                {' '}
+                <ShapeDivider
+                  type='curveTop'
+                  fillColor={primaryHex}
+                  className='absolute bottom-0 left-0 w-full'
+                  backgroundColor='transparent'
+                />
+              </ParallaxScroll>
               <Teaching />
               <Pricing />
               <Music />
