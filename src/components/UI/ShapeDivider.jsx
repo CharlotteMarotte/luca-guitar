@@ -27,6 +27,12 @@ const ShapeDivider = ({ type = 'default', fillColor = '#b87333', backgroundColor
         d: 'M0,0V112.77C0,65.52,268.63,7.23,600,7.23S1200,65.52,1200,112.77V0Z',
         opacity: 1
       }
+    ],
+    wavesDividerTop: [
+      {
+        d: 'M0 0v41s40 117.6 337 20.7c46.7-15.2 104.8-46 163-46 58.1 0 116.3 30.8 163 46 297 97 337-20.7 337-20.7V0H0Z',
+        opacity: 1
+      }
     ]
   }
 
@@ -37,7 +43,7 @@ const ShapeDivider = ({ type = 'default', fillColor = '#b87333', backgroundColor
       <svg
         data-name='Layer 1'
         xmlns='http://www.w3.org/2000/svg'
-        viewBox={type === 'curveTop' ? '0 0 1000 100' : '0 0 1200 120'}
+        viewBox={type === 'wavesDividerTop' ? '0 0 1000 100' : type === 'curveTop' ? '0 0 1000 100' : '0 0 1200 120'}
         preserveAspectRatio='none'
         className='w-full'
       >

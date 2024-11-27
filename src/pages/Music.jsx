@@ -50,7 +50,7 @@ const Music = () => {
   )
 
   return (
-    <div>
+    <>
       <PageScaffold title='Meine Musik' bgColor='bg-accent' textColor='text-textMedium'>
         <section id='music' className='text-textMedium min-h-screen flex flex-col items-center justify-center'>
           <p className='px-8 md:px-20 text-lg text-center md:text-justify'>
@@ -102,7 +102,7 @@ const Music = () => {
         </section>
       </PageScaffold>
       <ShapeDivider type='opaqueWavesBottom' fillColor={accentHex} backgroundColor='secondary' />
-    </div>
+    </>
   )
 }
 

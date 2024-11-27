@@ -10,7 +10,7 @@ const Teaching = () => {
   return (
     <div>
       <PageScaffold bgColor='bg-primary'>
-        <section id='teaching' className=' text-textLight pt-16'>
+        <section id='teaching' className=' text-textLight pt-12'>
           <div className='container mx-auto px-8 md:px-20 pb-16'>
             <div className='gap-6 '>
               <div className='flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-12'>

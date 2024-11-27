@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import clsx from 'clsx'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../../../tailwind.config.js'
-import { Navbar, Footer, ParallaxScroll, CookieConsentBanner, ShapeDivider } from '@components'
+import { Navbar, Footer, CookieConsentBanner, ShapeDivider } from '@components'
 import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages'
 import { guitarStock } from '@assets'
 import { useCookieConsent } from '@context'
@@ -45,15 +45,23 @@ const Layout = ({ children }) => {
             </header>
             <main>
               <About />
-              <ParallaxScroll imageUrl={guitarStock}>
-                {' '}
-                <ShapeDivider
-                  type='curveTop'
-                  fillColor={primaryHex}
-                  className='absolute bottom-0 left-0 w-full'
-                  backgroundColor='transparent'
-                />
-              </ParallaxScroll>
+              <div className='relative'>
+                <div className='w-full bg-fixed bg-center bg-cover' style={{ backgroundImage: `url(${guitarStock})` }}>
+                  <ShapeDivider
+                    type='wavesDividerTop'
+                    fillColor={primaryHex}
+                    className='absolute top-0 left-0 w-full'
+                    backgroundColor='transparent'
+                  />
+                  <div className='h-screen bg-opacity-75 flex justify-center pt-8'></div>
+                  <ShapeDivider
+                    type='curveTop'
+                    fillColor={primaryHex}
+                    className='absolute bottom-0 left-0 w-full'
+                    backgroundColor='transparent'
+                  />
+                </div>
+              </div>
               <Teaching />
               <Pricing />
               <Music />
