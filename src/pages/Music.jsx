@@ -18,6 +18,8 @@ const Music = () => {
           height='300'
           allow='autoplay'
           src={`https://w.soundcloud.com/player/?url=${trackUrl}&color=%239a5e1a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
+          title={title}
+          aria-label={`SoundCloud Player für ${title}`}
         ></iframe>
       </div>
 
@@ -29,6 +31,7 @@ const Music = () => {
           allow='autoplay'
           src={`https://w.soundcloud.com/player/?url=${trackUrl}&color=%239a5e1a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}
           title={title}
+          aria-label={`SoundCloud Player für ${title}`}
         ></iframe>
       </div>
     </>
@@ -44,6 +47,7 @@ const Music = () => {
           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
           referrerPolicy='strict-origin-when-cross-origin'
           allowFullScreen
+          aria-label={`Youtube Player für ${title}`}
         ></iframe>
       </div>
     </div>
@@ -61,15 +65,17 @@ const Music = () => {
               target='_blank'
               rel='noopener noreferrer'
               className='underline hover:text-white'
+              aria-label='Link zu Luca de Michielis YouTube-Kanal'
             >
               YouTube
             </a>
-            -Videos gibt es einen Einblick in meine Ausführung von Flamenco- und klassischen Gitarrenstücken, auf{' '}
+            -Videos gibt es einen Einblick in meine Ausführung von Flamenco- und klassischen Gitarrenstücken. Auf{' '}
             <a
               href='https://soundcloud.com/lucademichieliguitar'
               target='_blank'
               rel='noopener noreferrer'
               className='underline hover:text-white'
+              aria-label='Link zu Luca de Michielis SoundCloud-Profil'
             >
               Soundcloud
             </a>{' '}

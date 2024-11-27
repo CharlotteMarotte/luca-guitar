@@ -7,7 +7,8 @@ const CookieConsentBanner = () => {
   return (
     <section
       className='bg-neutralLight text-textDark rounded-t-lg font-quickneutralMedium px-6 py-4 flex flex-col items-center text-center gap-4 fixed bottom-0 left-0 w-full max-w-full min-h-[unset] max-h-[calc(100vh-50px)] overflow-y-auto'
-      role='dialog'
+      role='alert'
+      aria-live='assertive'
       aria-labelledby='cookie-consent-heading'
       aria-describedby='cookie-consent-description'
     >
@@ -62,7 +63,7 @@ const CookieConsentBanner = () => {
             checked
             readOnly
             className=' h-5 w-5 border-2 cursor-not-allowed secondary-neutralLight rounded-x'
-            aria-label='Necessary cookies (required)'
+            aria-label='Essenzielle Cookies (vorgeschrieben)'
           />
           <span className='text-gray-500'>Essenziell*</span>
         </label>

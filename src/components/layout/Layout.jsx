@@ -30,20 +30,26 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <div>
-        {isHomePage ? (
-          <>
-            <header
-              className={clsx('relative bg-cover bg-center', 'lg:min-h-screen', !isHomePage && 'bg-gray-300')}
-              style={{
-                backgroundImage: isHomePage
-                  ? 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
-                  : 'none'
-              }}
-            >
-              <Navbar />
-              <Welcome />
-            </header>
-            <main>
+        <a href='#about' className='sr-only focus:not-sr-only'>
+          Skip to content
+        </a>
+
+        <header
+          className={clsx('relative bg-cover bg-center', isHomePage && 'lg:min-h-screen')}
+          style={{
+            backgroundImage: isHomePage
+              ? 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
+              : 'none'
+          }}
+          aria-hidden='true'
+        >
+          <Navbar />
+          {isHomePage && <Welcome />}
+        </header>
+
+        <main id='main-content'>
+          {isHomePage ? (
+            <>
               <About />
               <div className='relative'>
                 <div className='w-full bg-fixed bg-center bg-cover' style={{ backgroundImage: `url(${guitarStock})` }}>
@@ -66,16 +72,15 @@ const Layout = ({ children }) => {
               <Pricing />
               <Music />
               <Contact />
-            </main>
-          </>
-        ) : (
-          <>
-            <Navbar />
-            <main>{children}</main>
-          </>
-        )}
+            </>
+          ) : (
+            <>{children}</>
+          )}
+        </main>
+
         <Footer />
       </div>
+
       {!loading && bannerVisible && <CookieConsentBanner />}
     </Wrapper>
   )

@@ -11,11 +11,13 @@ const PageScaffold = ({
   children
 }) => {
   return (
-    <div className={clsx(bgColor, 'min-h-screen relative', className)}>
+    <div className={clsx(bgColor, 'min-h-screen relative', className)} role='region' aria-labelledby={title ? 'page-title' : undefined}>
       {title && (
         <div className={clsx(outerPadding, 'text-center')}>
           <AnimateOnScroll>
-            <h1 className={clsx(textColor, 'text-4xl sm:text-5xl')}>{title}</h1>
+            <h1 id='page-title' className={clsx(textColor, 'text-4xl sm:text-5xl')}>
+              {title}
+            </h1>
           </AnimateOnScroll>
         </div>
       )}

@@ -41,7 +41,8 @@ const ShapeDivider = ({ type = 'default', fillColor = '#b87333', backgroundColor
   return (
     <div className={clsx('w-screen relative overflow-hidden', className, `bg-${backgroundColor}`)}>
       <svg
-        data-name='Layer 1'
+        role='presentation'
+        aria-hidden='true'
         xmlns='http://www.w3.org/2000/svg'
         viewBox={type === 'wavesDividerTop' ? '0 0 1000 100' : type === 'curveTop' ? '0 0 1000 100' : '0 0 1200 120'}
         preserveAspectRatio='none'

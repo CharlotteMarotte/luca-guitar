@@ -32,10 +32,10 @@ const Pricing = () => {
         <section id='pricing' className='relative text-textDark pt-6'>
           <div>
             <AnimateOnScroll>
-              <div className={'text-center mx-auto max-w-screen-md mb-8 lg:mb-12'}>
-                <p className={'mb-5 text-textDark sm:text-xl'}>
+              <div className='text-center mx-auto max-w-screen-md mb-8 lg:mb-12'>
+                <p className='mb-5 text-textDark sm:text-xl'>
                   Der Vertrag kann{' '}
-                  <a href={Contract} target='_blank' rel='noreferrer' className='underline'>
+                  <a href={Contract} target='_blank' rel='noreferrer' className='underline' aria-label='PDF mit Vertrag öffnen'>
                     hier
                   </a>{' '}
                   eingesehen werden.
@@ -47,17 +47,19 @@ const Pricing = () => {
                   activeLabel='mit Vertrag'
                   inactiveLabel='ohne Vertrag'
                   textColor='text-textDark'
+                  aria-label={`Wechsel zwischen Preismodellen ${isWithContract ? 'mit Vertrag' : 'ohne Vertrag'} zu ${!isWithContract ? 'mit Vertrag' : 'ohne Vertrag'}`}
                 />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll>
-              <div className='flex flex-wrap justify-center mt-10 gap-4 sm:gap-6 '>
+              <div className='flex flex-wrap justify-center mt-10 gap-4 sm:gap-6'>
                 {isWithContract ? pricingPlans.withContract.map(renderPricingCard) : pricingPlans.withoutContract.map(renderPricingCard)}
               </div>
             </AnimateOnScroll>
           </div>
         </section>
       </PageScaffold>
+
       <ShapeDivider type='curveBottom' fillColor={secondaryHex} backgroundColor='accent' />
     </div>
   )

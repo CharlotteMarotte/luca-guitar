@@ -1,13 +1,29 @@
 import clsx from 'clsx'
 
-const ToggleButton = ({ isChecked, onToggle, inactiveLabel, activeLabel, textColor = 'text-textLight' }) => {
+const ToggleButton = ({
+  isChecked,
+  onToggle,
+  inactiveLabel,
+  activeLabel,
+  textColor = 'text-textLight',
+  id = 'toggle-button',
+  ariaLabel = 'Toggle Button'
+}) => {
   const handleChange = (event) => {
     onToggle(event.target.checked)
   }
 
   return (
-    <label className='inline-flex items-center cursor-pointer'>
-      <input type='checkbox' checked={isChecked} onChange={handleChange} className='sr-only peer' />
+    <label htmlFor={id} className='inline-flex items-center cursor-pointer'>
+      <input
+        type='checkbox'
+        id={id}
+        checked={isChecked}
+        onChange={handleChange}
+        className='sr-only peer'
+        aria-checked={isChecked}
+        aria-label={ariaLabel}
+      />
 
       <div
         className={clsx(

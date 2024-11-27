@@ -47,7 +47,7 @@ const PricingCard = ({ pricingPlan }) => {
                 textColor: 'text-dark',
                 hoverTextColor: 'hover:text-dark'
               }}
-              aria-label='Button label'
+              aria-label='Anmelde-Button'
             >
               <a className='px-10 py-4 text-2xl md:text-xl' href='mailto:lucademichieli@posteo.net'>
                 Anmelden

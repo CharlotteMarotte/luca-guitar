@@ -1,21 +1,20 @@
-import { createBrowserRouter } from "react-router-dom";
-import { LegalDisclosure, PrivacyPolicy } from "@pages"; // Import pages
-import { Layout } from "@components"; // Layout component
+import { createBrowserRouter } from 'react-router-dom'
+import { LegalDisclosure, PrivacyPolicy } from '@pages'
+import { Layout } from '@components'
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Layout />, // Main layout that will contain your other sections
-  },
-  // Routing for pages that should have their own route, not displayed in the layout
-  {
-    path: "/impressum",
-    element: <LegalDisclosure />, // Your Impressum page
+    path: '/',
+    element: <Layout />
   },
   {
-    path: "/privacy",
-    element: <PrivacyPolicy />, // Your Privacy Policy page
+    path: '/impressum',
+    element: <LegalDisclosure />
   },
-]);
+  {
+    path: '/privacy',
+    element: <PrivacyPolicy />
+  }
+])
 
-export default router;
+export default router

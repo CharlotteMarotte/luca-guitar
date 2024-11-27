@@ -104,7 +104,63 @@ export const CookieConsentProvider = ({ children }) => {
         loading
       }}
     >
+      <div role='region' aria-live='polite' aria-labelledby='cookie-consent-banner' className={bannerVisible ? 'block' : 'hidden'}>
+        <div className='bg-primary text-white p-4' id='cookie-consent-banner'>
+          <h2 id='cookie-consent-header' className='text-xl font-semibold'>
+            Wir verwenden Cookies
+          </h2>
+          <p className='text-sm'>Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern.</p>
+
+          <div className='flex gap-4'>
+            <button aria-label='Alle Cookies akzeptieren' onClick={handleAcceptAll} className='btn btn-accept'>
+              Alle akzeptieren
+            </button>
+            <button aria-label='Cookies ablehnen' onClick={handleDecline} className='btn btn-decline'>
+              Ablehnen
+            </button>
+            <button aria-label='Einstellungen speichern' onClick={handleSavePreferences} className='btn btn-save'>
+              Einstellungen speichern
+            </button>
+          </div>
+
+          <div className='flex gap-2'>
+            <label htmlFor='marketing' className='flex items-center'>
+              <input
+                type='checkbox'
+                id='marketing'
+                checked={cookieCategoriesConsent.marketing}
+                onChange={(e) => handleCategoryChange('marketing', e.target.checked)}
+                aria-label='Marketing Cookies aktivieren'
+              />
+              Marketing
+            </label>
+            <label htmlFor='analytics' className='flex items-center'>
+              <input
+                type='checkbox'
+                id='analytics'
+                checked={cookieCategoriesConsent.analytics}
+                onChange={(e) => handleCategoryChange('analytics', e.target.checked)}
+                aria-label='Analytics Cookies aktivieren'
+              />
+              Analytics
+            </label>
+            <label htmlFor='functional' className='flex items-center'>
+              <input
+                type='checkbox'
+                id='functional'
+                checked={cookieCategoriesConsent.functional}
+                onChange={(e) => handleCategoryChange('functional', e.target.checked)}
+                aria-label='Funktionale Cookies aktivieren'
+              />
+              Funktional
+            </label>
+          </div>
+        </div>
+      </div>
+
       {children}
     </CookieConsentContext.Provider>
   )
 }
+
+export default CookieConsentProvider

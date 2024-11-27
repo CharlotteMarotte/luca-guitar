@@ -27,10 +27,19 @@ const AnimateOnScroll = ({ children, className = '', threshold = 0.3 }) => {
     }
   }, [])
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   return (
     <div
       ref={elementRef}
-      className={clsx('transition-opacity duration-1000 ease-in-out', isVisible ? 'opacity-100' : 'opacity-0', className)}
+      className={clsx(
+        'transition-opacity duration-1000 ease-in-out',
+        prefersReducedMotion ? 'transition-none' : '',
+        isVisible ? 'opacity-100' : 'opacity-0',
+        className
+      )}
+      aria-hidden={!isVisible}
+      aria-live={isVisible ? 'polite' : undefined}
     >
       {children}
     </div>

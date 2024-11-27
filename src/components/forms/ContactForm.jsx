@@ -91,15 +91,23 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           Name
         </label>
         <input
+          id='name'
           type='text'
           {...register('name')}
           onBlur={() => trigger('name')}
+          aria-invalid={errors.name ? 'true' : 'false'}
+          aria-describedby={errors.name ? 'name-error' : undefined}
           className={clsx(
-            'bg-neutralLight text-textDark p-3 rounded-3xl pl-4 focus:border-textDark focus:border-2 focus:outline-none focus:ring-0',
+            'bg-neutralLight text-textDark p-3 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-2 focus:border-textLight',
             errors.name && 'border-2 border-accent'
           )}
         />
-        {errors.name && <span className='text-accent'>{errors.name.message}</span>}
+
+        {errors.name && (
+          <span id='name-error' className='text-accent' role='alert'>
+            {errors.name.message}
+          </span>
+        )}
       </div>
 
       <div className='flex flex-col'>
@@ -107,15 +115,22 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           E-Mail
         </label>
         <input
+          id='email'
           type='email'
           {...register('email')}
           onBlur={() => trigger('email')}
+          aria-invalid={errors.email ? 'true' : 'false'}
+          aria-describedby={errors.email ? 'email-error' : undefined}
           className={clsx(
-            'bg-neutralLight text-textDark p-3 rounded-3xl pl-4 focus:border-textDark focus:border-2 focus:outline-none focus:ring-0',
+            'bg-neutralLight text-textDark p-3 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-2 focus:border-textLight',
             errors.email && 'border-2 border-accent'
           )}
         />
-        {errors.email && <span className='text-accent'>{errors.email.message}</span>}
+        {errors.email && (
+          <span id='email-error' className='text-accent' role='alert'>
+            {errors.email.message}
+          </span>
+        )}
       </div>
 
       <div className='flex flex-col'>
@@ -123,21 +138,30 @@ const ContactForm = ({ onSubmitSuccess, onSubmitError }) => {
           Nachricht
         </label>
         <textarea
+          id='message'
           {...register('message')}
           onBlur={() => trigger('message')}
           rows='4'
+          aria-invalid={errors.message ? 'true' : 'false'}
+          aria-describedby={errors.message ? 'message-error' : undefined}
           className={clsx(
-            'bg-neutralLight text-textDark p-6 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-textDark focus:border-2',
+            'bg-neutralLight text-textDark p-3 rounded-3xl pl-4 focus:outline-none focus:ring-0 focus:border-2 focus:border-textLight',
             errors.message && 'border-2 border-accent'
           )}
         ></textarea>
-        {errors.message && <span className='text-accent'>{errors.message.message}</span>}
+        {errors.message && (
+          <span id='message-error' className='text-accent' role='alert'>
+            {errors.message.message}
+          </span>
+        )}
       </div>
 
       <div className='flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 mt-4 justify-between items-center'>
         <MathValidation onValidationError={handleMathValidationError} onValidationSuccess={handleMathValidationSuccess} />
         <Button
           disabled={sending}
+          aria-live='polite'
+          aria-disabled={sending ? 'true' : 'false'}
           styleOptions={{
             backgroundColor: 'bg-secondary',
             textColor: 'text-dark',
