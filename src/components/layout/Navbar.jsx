@@ -29,7 +29,7 @@ const Navbar = () => {
               e.preventDefault()
               navigate('/')
             }}
-            className='group text-textLight transition-all duration-800 hover:text-white relative text-xl sm:text-2xl lg:text-3xl whitespace-nowrap'
+            className='group text-textLight transition-all duration-800 hover:text-white relative text-xl sm:text-2xl lg:text-2xl whitespace-nowrap'
             aria-label='Gehe zurück zur Startseite'
           >
             <span className='group-hover:text-white'>Luca de Michieli</span>

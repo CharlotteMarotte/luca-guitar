@@ -65,7 +65,7 @@ const CookieConsentBanner = () => {
             className=' h-5 w-5 border-2 cursor-not-allowed secondary-neutralLight rounded-x'
             aria-label='Essenzielle Cookies (vorgeschrieben)'
           />
-          <span className='text-gray-500'>Essenziell*</span>
+          <span className='text-gray-500'>Unverzichtbar*</span>
         </label>
       </div>
 

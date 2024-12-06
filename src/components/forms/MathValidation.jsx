@@ -40,7 +40,7 @@ const MathValidation = ({ onValidationError, onValidationSuccess }) => {
   }, [userAnswer])
 
   return (
-    <div>
+    <>
       <div className='flex items-center space-x-4 flex-wrap'>
         <p id='math-question' className='m-0 text-lg flex-shrink-0'>
           Was ergibt {num1} + {num2}?
@@ -68,7 +68,7 @@ const MathValidation = ({ onValidationError, onValidationSuccess }) => {
           Falsche Antwort. Bitte versuche es erneut.
         </p>
       )}
-    </div>
+    </>
   )
 }
 

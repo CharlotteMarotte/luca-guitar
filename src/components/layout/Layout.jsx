@@ -5,7 +5,7 @@ import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../../../tailwind.config.js'
 import { Navbar, Footer, CookieConsentBanner, ShapeDivider } from '@components'
 import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages'
-import { guitarStock } from '@assets'
+import { guitarStock, LucaHorizontal } from '@assets'
 import { useCookieConsent } from '@context'
 
 const Wrapper = ({ children }) => {
@@ -35,11 +35,9 @@ const Layout = ({ children }) => {
         </a>
 
         <header
-          className={clsx('relative bg-cover bg-center', isHomePage && 'lg:min-h-screen')}
+          className={clsx('w-full bg-fixed bg-cover bg-center', isHomePage && 'min-h-screen')}
           style={{
-            backgroundImage: isHomePage
-              ? 'url(https://www.londonguitarinstitute.co.uk/wp-content/uploads/2020/06/Folk-guitarist-1.jpg)'
-              : 'none'
+            backgroundImage: isHomePage ? `url(${LucaHorizontal})` : 'none'
           }}
           aria-hidden='true'
         >

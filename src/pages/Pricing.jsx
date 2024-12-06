@@ -20,7 +20,7 @@ const Pricing = () => {
   }
 
   return (
-    <div>
+    <>
       <PageScaffold
         title='Preise mit und ohne Vertragsbindung'
         bgColor='bg-secondary'
@@ -61,7 +61,7 @@ const Pricing = () => {
       </PageScaffold>
 
       <ShapeDivider type='curveBottom' fillColor={secondaryHex} backgroundColor='accent' />
-    </div>
+    </>
   )
 }
 

@@ -8,7 +8,7 @@ const Teaching = () => {
   const primaryHex = fullConfig.theme.colors.primary
 
   return (
-    <div>
+    <>
       <PageScaffold bgColor='bg-primary'>
         <section id='teaching' className='text-textLight pt-12'>
           <div className='container mx-auto px-8 md:px-20 pb-16'>
@@ -48,7 +48,7 @@ const Teaching = () => {
         </section>
       </PageScaffold>
       <ShapeDivider type='shapeBottom' fillColor={primaryHex} backgroundColor='secondary' />
-    </div>
+    </>
   )
 }
 

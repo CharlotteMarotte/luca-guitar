@@ -75,7 +75,7 @@ const Contact = () => {
                 <div className='relative w-full h-80 md:h-96 rounded-lg overflow-hidden shadow-lg mb-6'>
                   <iframe
                     title='Google Maps - Standort des Unterrichtsraums'
-                    src='https://www.google.com/maps/embed?pb=...'
+                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.731562934032!2d13.3221693!3d52.465888799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a85186a55cabd7%3A0x9e15c3827909e3c8!2sGitarrenunterricht%20bei%20Luca%20de%20Michieli!5e0!3m2!1sde!2sde!4v1733484864233!5m2!1sde!2sde'
                     width='100%'
                     height='100%'
                     style={{ border: 0 }}

@@ -49,7 +49,7 @@ const PricingCard = ({ pricingPlan }) => {
               }}
               aria-label='Anmelde-Button'
             >
-              <a className='px-10 py-4 text-2xl md:text-xl' href='mailto:lucademichieli@posteo.net'>
+              <a className='px-10 py-4 text-2xl md:text-xl' href='/#contact'>
                 Anmelden
               </a>
             </Button>

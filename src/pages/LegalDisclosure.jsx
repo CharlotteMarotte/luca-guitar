@@ -14,7 +14,7 @@ const LegalDisclosure = () => {
               <p className='mb-4'>Angaben gemäß § 5 TMG (Telemediengesetz):</p>
 
               <address className='mb-6'>
-                <p>Luca De Michieli</p>
+                <p>Luca de Michieli</p>
                 <p>Lepsiusstr. 6</p>
                 <p>12163 Berlin</p>
               </address>
