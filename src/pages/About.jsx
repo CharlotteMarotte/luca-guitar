@@ -1,4 +1,4 @@
-import { LucaPortrait } from '@assets'
+import { LucaVertical } from '@assets'
 import { PageScaffold, AnimateOnScroll } from '@components'
 
 const About = () => {
@@ -36,7 +36,7 @@ const About = () => {
           </div>
 
           <div className='flex-shrink-0 w-full lg:w-1/3 mt-4 md:mt-0'>
-            <img src={LucaPortrait} alt='Porträt von dem Gitarrenlehrer Luca' className='w-full h-auto rounded-lg shadow-lg' role='img' />
+            <img src={LucaVertical} alt='Porträt von dem Gitarrenlehrer Luca' className='w-full h-auto rounded-lg shadow-lg' role='img' />
           </div>
         </div>
       </section>

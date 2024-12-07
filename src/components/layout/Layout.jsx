@@ -5,7 +5,7 @@ import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../../../tailwind.config.js'
 import { Navbar, Footer, CookieConsentBanner, ShapeDivider } from '@components'
 import { Welcome, About, Teaching, Pricing, Music, Contact } from '@pages'
-import { guitarStock, LucaHorizontal } from '@assets'
+import { Luca, LucaHorizontal } from '@assets'
 import { useCookieConsent } from '@context'
 
 const Wrapper = ({ children }) => {
@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
             <>
               <About />
               <div className='relative'>
-                <div className='w-full bg-fixed bg-center bg-cover' style={{ backgroundImage: `url(${guitarStock})` }}>
+                <div className='w-full bg-fixed bg-center bg-cover' style={{ backgroundImage: `url(${Luca})` }}>
                   <ShapeDivider
                     type='wavesDividerTop'
                     fillColor={primaryHex}
@@ -78,7 +78,6 @@ const Layout = ({ children }) => {
 
         <Footer />
       </div>
-
       {!loading && bannerVisible && <CookieConsentBanner />}
     </Wrapper>
   )

@@ -56,6 +56,11 @@ html {
   }
 }
 
-.zoom-in {
-  animation: zoomIn 1s ease-out forwards;
+.scalloped-box {
+  --r: 10px;
+  aspect-ratio: 1;
+  padding: calc(1.5 * var(--r));
+  mask:
+    linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 2 * var(--r)) calc(100% - 2 * var(--r)),
+    radial-gradient(farthest-side, #000 97%, #0000) 0 0 / calc(2 * var(--r)) calc(2 * var(--r)) round;
 }

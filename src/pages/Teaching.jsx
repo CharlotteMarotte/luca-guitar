@@ -1,6 +1,6 @@
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../../tailwind.config.js'
-import { MusicNotes } from '@assets'
+import { Balcony } from '@assets'
 import { ShapeDivider, PageScaffold, AnimateOnScroll } from '@components'
 
 const Teaching = () => {
@@ -15,7 +15,12 @@ const Teaching = () => {
             <div className='gap-6'>
               <div className='flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-12'>
                 <div className='w-full lg:w-1/2 max-h-[90vh] overflow-hidden rounded-lg shadow-xl'>
-                  <img src={MusicNotes} alt='Foto von einem Musiknoten-Heft' className='object-cover w-full h-full' role='img' />
+                  <img
+                    src={Balcony}
+                    alt='Foto von einer Gitarre auf einem Balkon mit aufgeschlagenem Notenheft auf dem Tisch'
+                    className='object-cover w-full h-full'
+                    role='img'
+                  />
                 </div>
                 <div className='w-full lg:w-1/2 flex items-center justify-center text-center lg:text-justify text-xl mt-6 lg:mt-0'>
                   <div>

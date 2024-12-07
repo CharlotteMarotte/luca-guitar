@@ -1,18 +1,17 @@
+import React from 'react'
+
 const Welcome = () => {
   return (
     <section
       id='welcome'
-      className='flex items-end justify-end md:justify-start text-center text-textLight py-16 sm:py-24 lg:py-32 z-10'
+      className='relative flex items-end justify-end md:justify-start text-center py-16 sm:py-24 lg:py-32'
       role='region'
       aria-labelledby='welcome-section-title'
     >
-      <div className='px-0 md:px-4 mt-72 md:mt-52 w-full md:w-auto'>
-        <div className='p-6 rounded-none md:rounded-lg bg-[#002815] bg-opacity-70'>
-          <h2 id='welcome-section-title' className='text-3xl sm:text-4xl lg:text-5xl mb-4 zoom-in'>
-            Gitarreunterricht in Berlin
-          </h2>
-          <h2 id='welcome-section-title' className='text-3xl sm:text-4xl lg:text-5xl mb-4 zoom-in'>
-            bei Luca de Michieli
+      <div className='mx-auto max-w-2xl'>
+        <div className='bg-primary p-4 scalloped-box h-64 absolute right-10 top-10'>
+          <h2 className='text-3xl sm:text-4xl lg:text-5xl mb-4 text-textLight' style={{ lineHeight: '1.2em' }}>
+            Gitarrenunterricht in Berlin bei Luca de Michieli
           </h2>
         </div>
       </div>
