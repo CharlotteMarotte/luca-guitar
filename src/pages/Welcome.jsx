@@ -8,13 +8,7 @@ const Welcome = () => {
       role='region'
       aria-labelledby='welcome-section-title'
     >
-      <div className='mx-auto max-w-2xl'>
-        <div className='bg-primary p-4 scalloped-box h-64 absolute right-10 top-10'>
-          <h2 className='text-3xl sm:text-4xl lg:text-5xl mb-4 text-textLight' style={{ lineHeight: '1.2em' }}>
-            Gitarrenunterricht in Berlin bei Luca de Michieli
-          </h2>
-        </div>
-      </div>
+      <p className='sr-only'>Willkommen auf meiner Website. Ich heiße Luca de Michieli und biete Gitarrenunterricht in Berlin an.</p>
     </section>
   )
 }
