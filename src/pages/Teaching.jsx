@@ -1,26 +1,23 @@
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../../tailwind.config.js'
-import { Balcony } from '@assets'
-import { ShapeDivider, PageScaffold, AnimateOnScroll } from '@components'
+import { Balcony, Room1, Room2, Room3 } from '@assets'
+import { ShapeDivider, PageScaffold, AnimateOnScroll, Carousel } from '@components'
 
 const Teaching = () => {
   const fullConfig = resolveConfig(tailwindConfig)
   const primaryHex = fullConfig.theme.colors.primary
 
+  const images = [Balcony, Room1, Room2, Room3]
+
   return (
     <>
       <PageScaffold bgColor='bg-primary'>
         <section id='teaching' className='text-textLight pt-12'>
-          <div className='container mx-auto px-8 md:px-20 pb-16'>
+          <div className='container mx-auto px-8 pb-16'>
             <div className='gap-6'>
               <div className='flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-12'>
-                <div className='w-full lg:w-1/2 max-h-[90vh] overflow-hidden rounded-lg shadow-xl'>
-                  <img
-                    src={Balcony}
-                    alt='Foto von einer Gitarre auf einem Balkon mit aufgeschlagenem Notenheft auf dem Tisch'
-                    className='object-cover w-full h-full'
-                    role='img'
-                  />
+                <div className='w-full lg:w-1/2'>
+                  <Carousel images={images} />
                 </div>
                 <div className='w-full lg:w-1/2 flex items-center justify-center text-center lg:text-justify text-xl mt-6 lg:mt-0'>
                   <div>
